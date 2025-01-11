@@ -1,0 +1,41 @@
+{
+  "layout": {
+    "header": {
+      "home": "Home",
+      "about-us": "About us",
+      "courses": "Courses",
+      "contact": "Contact"
+    },
+    "footer": {
+      "contact": "Contact",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email"
+    }
+  },
+  "mainpage": {
+    "title": "Algarvianroots",
+    "description": "Este é um dicionário de exemplo.",
+    "about-us": {
+      "title": "Sobre nós",
+      "description": "Somos uma empresa de exemplo."
+    },
+    "courses": {
+      "title": "As nossas experiências",
+      "categories": [
+        {
+          "title": "Workshops",
+          "color": "blue"
+        },
+        {
+          "title": "Tours",
+          "color": "yellow"
+        },
+        {
+          "title": "Caminhadas",
+          "color": "green"
+        }
+      ]
+    }
+  }
+}
