@@ -20,11 +20,14 @@ const Header = async ({
               alt="Algarvian Roots Logo"
               width={180}
               height={38}
+              style={{
+                width: "180px",
+              }}
               priority
             />
           </li>
           <li>
-            <Link href="/">{dict.layout.header.home} </Link>
+            <Link href="/">{dict.layout.header.home}</Link>
           </li>
           <li>
             <Link href="/about-us">{dict.layout.header["about-us"]}</Link>
