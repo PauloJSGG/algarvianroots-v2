@@ -12,7 +12,7 @@ const Rock = ({
       <Image
         src={`/images/rocks/rock-${color}.svg`}
         alt={text}
-        fetchPriority="low"
+        priority
         fill
         className="z-10 cursor-pointer hover:scale-110 transform transition-transform duration-300"
       />
