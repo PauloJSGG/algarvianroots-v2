@@ -11,7 +11,8 @@ const Rock = ({
     <div className="relative w-full h-96">
       <Image
         src={`/images/rocks/rock-${color}.svg`}
-        alt="Rock"
+        alt={text}
+        fetchPriority="low"
         fill
         className="z-10 cursor-pointer hover:scale-110 transform transition-transform duration-300"
       />

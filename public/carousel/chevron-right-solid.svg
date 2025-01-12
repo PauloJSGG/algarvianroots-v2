@@ -1,26 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-  <path fill="rgb(255,255,255)" style="animation:right 3s infinite" class="shadow-right" d="M342.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L274.7 256 105.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
-   <style type="text/css">
-    <!-- shadow -->
-    @keyframes right {
-      0%, to {
-        transform-origin: center;
-        transform: scale(0.8);
-      }
-      50% {
-        transform: scale(1);
-      }
-    }
-    .shadow-right {
-      -webkit-filter: drop-shadow( 10px 10px 8px rgba(0, 0, 0, .8));
-      filter: drop-shadow( 10px 10px 8px rgba(0, 0, 0, .8));
-      /* Similar syntax to box-shadow */
-    }
-    .hoverr {
-      :hover {
-        transform-origin: center;
-        transform: scale(0.8);
-      }
-    }
+  <path fill="#FFF" style="animation:right 3s infinite;-webkit-filter:drop-shadow(10px 10px 8px rgba(0,0,0,.8));filter:drop-shadow(10px 10px 8px rgba(0,0,0,.8))" d="M342.6 233.4a32.05 32.05 0 0 1 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L274.7 256 105.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+  <style>
+    @keyframes right{0%{transform-origin:center;transform:scale(.8)}50%{transform:scale(1)}}
   </style>
 </svg>

@@ -1,7 +1,0 @@
-<svg width="70" height="80" viewBox="0 0 70 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="70" height="80"/>
-<path style="animation:d 3s infinite" d="M34.2499 49.3127L19.9345 34.8887C19.244 34.1931 19.244 33.0652 19.9345 32.3696L21.6041 30.6873C22.2934 29.9929 23.4104 29.9915 24.1013 30.6844L35.5 42.1156L46.8986 30.6844C47.5895 29.9915 48.7066 29.9929 49.3958 30.6873L51.0655 32.3696C51.7559 33.0653 51.7559 34.1931 51.0655 34.8887L36.7501 49.3127C36.0597 50.0083 34.9403 50.0083 34.2499 49.3127Z" fill="white"/>
-  <style type="text/css">
-    @keyframes d{0%,to{transform-origin:center;transform:scale(1.4)}50%{transform:scale(1)}
-  </style> 
-</svg>
