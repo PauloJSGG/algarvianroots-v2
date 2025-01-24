@@ -11,7 +11,7 @@ const Header = async ({
   const dict = await getDictionary(lang);
 
   return (
-    <header className="flex justify-between p-4 bg-gray-800 text-white fixed w-full">
+    <header className="flex justify-between p-4 bg-gray-800 text-white fixed w-full z-50">
       <nav>
         <ul className="flex gap-4 items-center">
           <li>

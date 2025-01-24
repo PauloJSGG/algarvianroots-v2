@@ -14,7 +14,7 @@ const Rock = ({
         alt={text}
         priority
         fill
-        className="z-10 cursor-pointer hover:scale-110 transform transition-transform duration-300"
+        className="cursor-pointer hover:scale-110 transform transition-transform duration-300"
       />
       <div className="h-full flex justify-center items-center">
         <h1 className="z-20">{text}</h1>

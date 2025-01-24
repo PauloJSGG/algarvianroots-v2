@@ -7,4 +7,4 @@ const firebaseConfig = {
   appId: process.env.FIREBASE_APP_ID
 }
 
-export default firebaseConfig
+export default firebaseConfig 
