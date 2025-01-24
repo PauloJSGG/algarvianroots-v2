@@ -1,15 +1,10 @@
 import Image from "next/image";
+import footer from "@/public/images/footer.png";
 
 const Footer = () => {
   return (
-    <footer className="flex w-full h-80 relative">
-      <Image
-        className="max-h-64"
-        src="/background-green-cut.png"
-        alt="Algarvian Roots Logo"
-        sizes="100vw"
-        fill
-      />
+    <footer className="flex w-full">
+      <Image className="max-h-64" src={footer} alt="Tiles footer" />
     </footer>
   );
 };

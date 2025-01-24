@@ -14,11 +14,15 @@
     }
   },
   "mainpage": {
+    "metadata": {
+      "title": "Algarvianroots - Ecoturismo no Algarve",
+      "description": "A Algarvianroots é uma empresa que oferece experiências de ecoturismo no Algarve. Descubra o património natural e cultural do Algarve connosco."
+    },
     "title": "Algarvianroots",
     "description": "Este é um dicionário de exemplo.",
     "about-us": {
       "title": "Sobre nós",
-      "description": "Somos uma empresa de exemplo."
+      "description": "Enter in this adventure and find what the natural and cultural heritage have to offer you. Authentic, different and diverse itineraries. \nGuided hikes, gastronomy tasting, workshops, birdwatching in the Algarve \nEcotourism is a sustainable activity in natural areas, conserves the environment, keep the local people well-being and involves interpretation and education."
     },
     "courses": {
       "title": "As nossas experiências",

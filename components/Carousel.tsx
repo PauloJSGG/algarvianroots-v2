@@ -2,6 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import Image, { StaticImageData } from "next/image";
+// import arrow left from lucid
+// import arrow right from lucid
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface CarouselProps {
   images: StaticImageData[];
@@ -58,15 +61,15 @@ const Carousel = ({
         className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2"
         onClick={prevSlide}
       >
-        Prev
+        <ChevronLeft />
       </button>
       <button
         className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2"
         onClick={nextSlide}
       >
-        Next
+        <ChevronRight />
       </button>
-      <div className="absolute bottom-0 left-0 right-0 flex justify-center mb-4">
+      {/* <div className="absolute bottom-0 left-0 right-0 flex justify-center mb-4">
         {images.map((_, index) => (
           <div
             key={index}
@@ -76,7 +79,7 @@ const Carousel = ({
             onClick={() => setCurrentIndex(index)}
           />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

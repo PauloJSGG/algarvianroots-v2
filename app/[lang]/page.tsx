@@ -9,6 +9,36 @@ import seperatorTop from "@/public/images/seperator-top.png";
 import seperatorBottom from "@/public/images/seperator-bottom.png";
 import pao from "@/public/images/landing-page/pao.jpg";
 import barro from "@/public/images/landing-page/barro.jpg";
+import type { Metadata } from "next";
+
+type Props = {
+  params: Promise<{ lang: "en" | "pt" }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  // parent: ResolvingMetadata
+): Promise<Metadata> {
+  const lang = (await params).lang;
+  const dict = await getDictionary(lang);
+  // read route params
+  // const id = (await params).id
+
+  // fetch data
+  // const product = await fetch(`https://.../${id}`).then((res) => res.json())
+
+  // optionally access and extend (rather than replace) parent metadata
+  // const previousImages = (await parent).openGraph?.images || []
+
+  return {
+    title: dict.mainpage.metadata.title,
+    description: dict.mainpage.metadata.description,
+    // openGraph: {
+    //   images: [pao]
+    // },
+  };
+}
 
 // random pokemon Images
 const images = [pao, barro];
@@ -37,6 +67,10 @@ export default async function Page({
                 text={category.title}
               />
             ))}
+          </div>
+          <div className="text-3xl">{dict.mainpage["about-us"].title}</div>
+          <div className="text-xl w-80 text-center">
+            {dict.mainpage["about-us"].description}
           </div>
           <Carousel images={images} autoSlide={false} />
           <Image
