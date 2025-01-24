@@ -11,10 +11,7 @@ import pao from "@/public/images/landing-page/pao.jpg";
 import barro from "@/public/images/landing-page/barro.jpg";
 
 // random pokemon Images
-const images = [
-  pao,
-  barro
-];
+const images = [pao, barro];
 
 export default async function Page({
   params,
@@ -42,7 +39,11 @@ export default async function Page({
             ))}
           </div>
           <Carousel images={images} autoSlide={false} />
-          <Image src={seperatorBottom} alt="seperator-bottom" className="max-h-64" />
+          <Image
+            src={seperatorBottom}
+            alt="seperator-bottom"
+            className="max-h-64"
+          />
         </div>
       </main>
     </div>
