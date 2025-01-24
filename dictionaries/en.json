@@ -3,7 +3,7 @@
     "header": {
       "home": "Home",
       "about-us": "About us",
-      "courses": "Courses",
+      "activities": "Activities",
       "contact": "Contact"
     },
     "footer": {
@@ -24,8 +24,8 @@
       "title": "About us",
       "description": "Enter in this adventure and find what the natural and cultural heritage have to offer you. \nAuthentic, different and diverse itineraries. \nGuided hikes, gastronomy tasting, workshops, birdwatching in the Algarve \nEcotourism is a sustainable activity in natural areas, conserves the environment, keep the local people well-being and involves interpretation and education."
     },
-    "courses": {
-      "title": "As nossas experiências",
+    "activities": {
+      "title": "Our activities",
       "categories": [
         {
           "title": "Experiences",

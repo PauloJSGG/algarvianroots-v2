@@ -10,8 +10,10 @@ const Header = async ({
   const lang = (await params).lang;
   const dict = await getDictionary(lang);
 
+  console.log('lang', lang)
+
   return (
-    <header className="flex justify-between p-4 bg-gray-800 text-white fixed w-full z-50">
+    <header className="flex justify-between p-4 bg-gray-800 text-white sticky w-full z-50">
       <nav>
         <ul className="flex gap-4 items-center">
           <li>
@@ -31,6 +33,11 @@ const Header = async ({
           </li>
           <li>
             <Link href="/about-us">{dict.layout.header["about-us"]}</Link>
+          </li>
+          <li>
+            <Link locale={lang} href={`${lang}/activities`} >
+              {dict.layout.header.activities}
+            </Link>
           </li>
         </ul>
       </nav>
