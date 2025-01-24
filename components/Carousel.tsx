@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 interface CarouselProps {
-  images: string[];
+  images: StaticImageData[];
   autoSlide?: boolean;
   autoSlideInterval?: number;
 }
@@ -38,7 +38,7 @@ const Carousel = ({
   return (
     <div className="relative w-full max-w-3xl mx-auto">
       <div className="overflow-hidden relative h-64">
-        {images.map((image: string, index: number) => (
+        {images.map((image: StaticImageData, index: number) => (
           <div
             key={index}
             className={`absolute inset-0 transition-transform transform ${
