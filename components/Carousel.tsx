@@ -3,7 +3,17 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
-const Carousel = ({ images, autoSlide = true, autoSlideInterval = 3000 }) => {
+interface CarouselProps {
+  images: string[];
+  autoSlide?: boolean;
+  autoSlideInterval?: number;
+}
+
+const Carousel = ({
+  images,
+  autoSlide = true,
+  autoSlideInterval = 3000,
+}: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -28,7 +38,7 @@ const Carousel = ({ images, autoSlide = true, autoSlideInterval = 3000 }) => {
   return (
     <div className="relative w-full max-w-3xl mx-auto">
       <div className="overflow-hidden relative h-64">
-        {images.map((image, index) => (
+        {images.map((image: string, index: number) => (
           <div
             key={index}
             className={`absolute inset-0 transition-transform transform ${
