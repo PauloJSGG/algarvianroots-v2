@@ -58,13 +58,13 @@ const Carousel = ({
         ))}
       </div>
       <button
-        className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2"
+        className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-foreground text-white p-2"
         onClick={prevSlide}
       >
         <ChevronLeft />
       </button>
       <button
-        className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2"
+        className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-foreground text-white p-2"
         onClick={nextSlide}
       >
         <ChevronRight />

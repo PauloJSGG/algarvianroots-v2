@@ -10,16 +10,17 @@ import seperatorBottom from "@/public/images/seperator-bottom.png";
 import pao from "@/public/images/landing-page/pao.jpg";
 import barro from "@/public/images/landing-page/barro.jpg";
 import type { Metadata } from "next";
+import Footer from "@/components/Footer";
 
 type Props = {
   params: Promise<{ lang: "en" | "pt" }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-export async function generateMetadata(
-  { params }: Props,
-  // parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: Props): // parent: ResolvingMetadata
+Promise<Metadata> {
   const lang = (await params).lang;
   const dict = await getDictionary(lang);
   // read route params
@@ -52,15 +53,23 @@ export default async function Page({
   const dict = await getDictionary(lang);
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full">
-        <video className="w-full h-full sticky top-0 -z-10" autoPlay muted loop>
-          <source src="/LandingPageVideo.mp4" type="video/mp4" />
-        </video>
-        <div className="w-full flex flex-col items-center gap-4 bg-white">
-          <Image src={seperatorTop} alt="seperator-top" className="max-h-64" />
-          <div className="flex gap-4 w-full">
-            {dict.mainpage.courses.categories.map((category) => (
+    <main className="flex flex-col items-center w-full">
+      <video
+        className="w-full h-dvh sticky top-0 -z-10 object-cover"
+        autoPlay
+        muted
+        loop
+      >
+        <source src="/LandingPageVideo.mp4" type="video/mp4" />
+      </video>
+      <div className="w-full flex flex-col items-center gap-4 bg-white">
+        <Image src={seperatorTop} alt="seperator-top" className="max-h-64" />
+
+        {/* Activities */}
+        <>
+          <div className="text-3xl">{dict.mainpage.activities.title}</div>
+          <div className="flex gap-4 w-full flex-wrap sm:flex-nowrap">
+            {dict.mainpage.activities.categories.map((category) => (
               <Rock
                 key={category.title}
                 color={category.color as "yellow" | "blue" | "green"}
@@ -68,18 +77,26 @@ export default async function Page({
               />
             ))}
           </div>
-          <div className="text-3xl">{dict.mainpage["about-us"].title}</div>
-          <div className="text-xl w-80 text-center">
-            {dict.mainpage["about-us"].description}
-          </div>
-          <Carousel images={images} autoSlide={false} />
-          <Image
-            src={seperatorBottom}
-            alt="seperator-bottom"
-            className="max-h-64"
-          />
+        </>
+
+        {/* About Us */}
+        <div className="text-3xl">{dict.mainpage["about-us"].title}</div>
+        <div className="text-xl w-80 text-center">
+          {dict.mainpage["about-us"].description}
         </div>
-      </main>
-    </div>
+
+        <Carousel images={images} autoSlide={true} autoSlideInterval={4000} />
+
+        {/* Other */} 
+        <Image
+          src={seperatorBottom}
+          alt="seperator-bottom"
+          className="max-h-64"
+        />
+      </div>
+
+      {/* <Carousel images={images} autoSlide={true} autoSlideInterval={4000} /> */}
+      <Footer />
+    </main>
   );
 }

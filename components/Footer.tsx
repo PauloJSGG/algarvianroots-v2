@@ -3,8 +3,11 @@ import footer from "@/public/images/footer.png";
 
 const Footer = () => {
   return (
-    <footer className="flex w-full">
-      <Image className="max-h-64" src={footer} alt="Tiles footer" />
+    <footer>
+      <div className="text-9xl bg-transparent">wtfffff</div>
+      {/* <footer className="flex w-full bg-transparent">
+      <Image className="max-h-64 bg-transparent" src={footer} alt="Tiles footer" />
+    </footer> */}
     </footer>
   );
 };
