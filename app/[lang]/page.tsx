@@ -11,6 +11,9 @@ import pao from "@/public/images/landing-page/pao.jpg";
 import barro from "@/public/images/landing-page/barro.jpg";
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
+import { getLatestArticle } from "@/services/firebase/articles";
+import ArticlePreview from "@/components/ArticlePreview";
+import ArticlesPreview from "@/components/ArticlePreview";
 
 type Props = {
   params: Promise<{ lang: "en" | "pt" }>;
@@ -52,6 +55,8 @@ export default async function Page({
   const lang = (await params).lang;
   const dict = await getDictionary(lang);
 
+  const articles = await getLatestArticle();
+
   return (
     <main className="flex flex-col items-center w-full">
       <video
@@ -87,7 +92,15 @@ export default async function Page({
 
         <Carousel images={images} autoSlide={true} autoSlideInterval={4000} />
 
-        {/* Other */} 
+        {/* Latest 3 articles */}
+        <div className="text-4xl w-80 text-center">
+          {dict.mainpage.articles.title}
+        </div>
+        
+        
+        <ArticlesPreview articles={articles} />
+            
+        {/* Other */}
         <Image
           src={seperatorBottom}
           alt="seperator-bottom"

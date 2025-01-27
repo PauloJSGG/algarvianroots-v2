@@ -2,6 +2,10 @@ import type { NextConfig } from "next";
 import withBundleAnalyzer from "@next/bundle-analyzer";
 
 const nextConfig: NextConfig = {
+  // consfigure hostname firebasestorage.googleapis.com
+  images: {
+    domains: ["firebasestorage.googleapis.com"],
+  },
   webpack(config) {
     // add SVG as asset
     config.module.rules.push({
