@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: "Salvatore"; /*a name to be used later*/
-  src: url("@/public/fonts/Salvatore-Regular.ttf"); /*URL to font*/
+  src: url("../public/fonts/Salvatore-Regular.ttf"); /*URL to font*/
 }
 
 body {
