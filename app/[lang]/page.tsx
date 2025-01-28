@@ -11,9 +11,9 @@ import pao from "@/public/images/landing-page/pao.jpg";
 import barro from "@/public/images/landing-page/barro.jpg";
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
-import { getLatestArticle } from "@/services/firebase/articles";
-import ArticlePreview from "@/components/ArticlePreview";
-import ArticlesPreview from "@/components/ArticlePreview";
+import { getLatestArticles } from "@/services/firebase/articles";
+// import ArticlePreview from "@/components/ArticlePreview";
+import { ArticlesPreview } from "@/components/ArticlePreview";
 
 type Props = {
   params: Promise<{ lang: "en" | "pt" }>;
@@ -55,7 +55,7 @@ export default async function Page({
   const lang = (await params).lang;
   const dict = await getDictionary(lang);
 
-  const articles = await getLatestArticle();
+  const articles = await getLatestArticles();
 
   return (
     <main className="flex flex-col items-center w-full">
@@ -96,10 +96,9 @@ export default async function Page({
         <div className="text-4xl w-80 text-center">
           {dict.mainpage.articles.title}
         </div>
-        
-        
+
         <ArticlesPreview articles={articles} />
-            
+
         {/* Other */}
         <Image
           src={seperatorBottom}
