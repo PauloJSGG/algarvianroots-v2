@@ -13,7 +13,7 @@ const Article = ({ title, image, text }: ArticleProps) => (
       <div className="text-lg font-bold">{title}</div>
       {text && <Markdown className="text-sm">{text}</Markdown>}
     </div>
-    {/* <Image src={image} alt={title} width={300} height={300} /> */}
+    <Image src={image} alt={title} width={300} height={300} />
   </div>
 );
 
