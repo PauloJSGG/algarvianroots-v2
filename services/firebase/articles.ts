@@ -23,6 +23,7 @@ export interface Article {
   name: string;
   description: string;
   image: string;
+  text?: string;
 }
 
 const getArticle = async (lang: "en" | "pt", id: string) => {
@@ -40,6 +41,7 @@ const getArticle = async (lang: "en" | "pt", id: string) => {
     image: (await getDownloadURL(
       ref(st, docSnapshot.data().main_image)
     )) as string,
+    text: docSnapshot.data().text as string,
   };
 };
 

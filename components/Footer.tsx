@@ -1,6 +1,3 @@
-import Image from "next/image";
-import footer from "@/public/images/footer.png";
-
 const Footer = () => {
   return (
     <footer>
