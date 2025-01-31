@@ -55,7 +55,7 @@ export default async function Page({
   const lang = (await params).lang;
   const dict = await getDictionary(lang);
 
-  const articles = await getLatestArticles();
+  const articles = await getLatestArticles(lang);
 
   return (
     <main className="flex flex-col items-center w-full">
@@ -72,9 +72,9 @@ export default async function Page({
 
         {/* Activities */}
         <>
-          <div className="text-3xl">{dict.mainpage.activities.title}</div>
+          <div className="text-3xl">{dict.activities.title}</div>
           <div className="flex gap-4 w-full flex-wrap sm:flex-nowrap">
-            {dict.mainpage.activities.categories.map((category) => (
+            {dict.activities.categories.map((category) => (
               <Rock
                 key={category.title}
                 color={category.color as "yellow" | "blue" | "green"}
@@ -94,7 +94,7 @@ export default async function Page({
 
         {/* Latest 3 articles */}
         <div className="text-4xl w-80 text-center">
-          {dict.mainpage.articles.title}
+          {dict.articles.title}
         </div>
 
         <ArticlesPreview articles={articles} />

@@ -1,14 +1,12 @@
-import { Article } from "@/services/firebase/articles";
+import { IArticle } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
 
 interface ArticlePreviewProps {
-  title: string;
-  description: string;
-  image: string;
+  article: IArticle;
 }
 
-const ArticlePreview = ({ title, description, image }: ArticlePreviewProps) => {
+const ArticlePreview = ({ article}: ArticlePreviewProps) => {
   return (
     // blog style card
     <div
@@ -17,15 +15,15 @@ const ArticlePreview = ({ title, description, image }: ArticlePreviewProps) => {
     "
     >
       <div className="flex flex-col items-center w-full">
-        <div className="text-lg font-bold">{title}</div>
-        <div className="text-sm">{description}</div>
+        <div className="text-lg font-bold">{article.title}</div>
+        <div className="text-sm">{article.description}</div>
       </div>
-      <Image src={image} alt={title} width={300} height={300} />
+      <Image src={article.image} alt={article.title} width={300} height={300} />
     </div>
   );
 };
 
-const ArticlesPreview = ({ articles }: { articles: Article[] }) => {
+const ArticlesPreview = ({ articles }: { articles: IArticle[] }) => {
   if (!articles) {
     return <div>No articles to show</div>;
   }
@@ -33,12 +31,10 @@ const ArticlesPreview = ({ articles }: { articles: Article[] }) => {
   return (
     <div className="flex gap-4">
       {articles.map((article) => (
-        <Link href={`articles/${article.id}`} key={article.name}>
+        <Link href={`articles/${article.id}`} key={article.id}>
           <ArticlePreview
             key={article.id}
-            title={article.name}
-            description={article.description}
-            image={article.image}
+            article={article}
           />
         </Link>
       ))}

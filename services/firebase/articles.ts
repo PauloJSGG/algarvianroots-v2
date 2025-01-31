@@ -1,7 +1,5 @@
 import {
   collection,
-  doc,
-  getDoc,
   getDocs,
   limit,
   orderBy,
@@ -9,6 +7,8 @@ import {
 } from "@firebase/firestore/lite";
 import { db, st } from ".";
 import { getDownloadURL, ref } from "firebase/storage";
+import { EnumLang, IArticle } from "@/types/types";
+import { where } from "@firebase/firestore";
 
 // const getArticle = async (lang: "en" | "pt", id: string) => {
 //   const categoryDocRef = doc(db, "categories", category.id);
@@ -18,38 +18,37 @@ import { getDownloadURL, ref } from "firebase/storage";
 //   );
 // }
 
-export interface Article {
-  id: string;
-  name: string;
-  description: string;
-  image: string;
-  text?: string;
-}
+const getArticle = async (slug: string, lang: EnumLang) => {
+  const collectionRef = collection(db, "articles");
 
-const getArticle = async (lang: "en" | "pt", id: string) => {
-  const docRef = doc(db, "articles", id);
+  const docQuery = query(
+    collectionRef,
+    where("slug", "==", slug),
+    orderBy("created_at", "desc"),
+    limit(1)
+  );
 
-  const docSnapshot = await getDoc(docRef);
+  const docSnapshot = await getDocs(docQuery);
 
-  if (!docSnapshot.exists()) {
-    throw new Error("No such article");
+  if (docSnapshot.docs.length === 0) {
+    throw new Error("No articles found");
   }
 
+  const article = docSnapshot.docs[0];
+
   return {
-    name: docSnapshot.data().name as string,
-    description: docSnapshot.data().description as string,
-    image: (await getDownloadURL(
-      ref(st, docSnapshot.data().main_image)
-    )) as string,
-    text: docSnapshot.data().text as string,
+    id: article.id,
+    name: article.data()[lang].name as string,
+    description: article.data()[lang].description as string,
+    image: (await getDownloadURL(ref(st, article.data().main_image))) as string,
+    text: article.data()[lang].text as string,
   };
 };
 
 const getLatestArticles: (
-  limitNumber?: number,
-  lang?: "en" | "pt"
-) => Promise<Article[]> = async (limitNumber = 3, lang = "en") => {
-  console.log(lang);
+  lang: EnumLang,
+  limitNumber?: number
+) => Promise<IArticle[]> = async (lang = "en", limitNumber = 3) => {
   const collectionRef = collection(db, "articles");
 
   const latestDocQuery = query(
@@ -67,8 +66,8 @@ const getLatestArticles: (
   const articles = querySnapshot.docs.map(async (doc) => {
     return {
       id: doc.id,
-      name: doc.data().name as string,
-      description: doc.data().description as string,
+      title: doc.data()[lang].title as string,
+      description: doc.data()[lang].description as string,
       image: (await getDownloadURL(ref(st, doc.data().main_image))) as string,
     };
   });

@@ -1,5 +1,6 @@
 import Rock from "@/components/Rock";
 import { getDictionary } from "../dictionaries";
+import Link from "next/link";
 
 export default async function Page({
   params,
@@ -11,12 +12,17 @@ export default async function Page({
 
   return (
     <div className="flex gap-4 w-full">
-      {dict.mainpage.activities.categories.map((category) => (
-        <Rock
+      {dict.activities.categories.map((category) => (
+        <Link
+          href={`/${lang}/activity-categories/${category.slug}/activities`}
           key={category.title}
-          color={category.color as "yellow" | "blue" | "green"}
-          text={category.title}
-        />
+        >
+          <Rock
+            key={category.title}
+            color={category.color as "yellow" | "blue" | "green"}
+            text={category.title}
+          />
+        </Link>
       ))}
     </div>
   );
