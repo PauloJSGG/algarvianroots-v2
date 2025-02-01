@@ -6,8 +6,9 @@ const page = async ({
 }: {
   params: Promise<{ lang: "en" | "pt"; slug: string }>;
 }) => {
+  const lang = (await params).lang;
   const slug = (await params).slug;
-  const activity = await getActivity(slug);
+  const activity = await getActivity(slug, lang);
   return (
     <div>
       <ActivityPreview activity={activity} />

@@ -6,7 +6,8 @@ interface ArticlePreviewProps {
   article: IArticle;
 }
 
-const ArticlePreview = ({ article}: ArticlePreviewProps) => {
+const ArticlePreview = ({ article }: ArticlePreviewProps) => {
+  const { translations } = article;
   return (
     // blog style card
     <div
@@ -15,10 +16,15 @@ const ArticlePreview = ({ article}: ArticlePreviewProps) => {
     "
     >
       <div className="flex flex-col items-center w-full">
-        <div className="text-lg font-bold">{article.title}</div>
-        <div className="text-sm">{article.description}</div>
+        <div className="text-lg font-bold">{translations.title}</div>
+        <div className="text-sm">{translations.description}</div>
       </div>
-      <Image src={article.image} alt={article.title} width={300} height={300} />
+      <Image
+        src={article.image}
+        alt={translations.title}
+        width={300}
+        height={300}
+      />
     </div>
   );
 };
@@ -31,11 +37,8 @@ const ArticlesPreview = ({ articles }: { articles: IArticle[] }) => {
   return (
     <div className="flex gap-4">
       {articles.map((article) => (
-        <Link href={`articles/${article.id}`} key={article.id}>
-          <ArticlePreview
-            key={article.id}
-            article={article}
-          />
+        <Link href={`articles/${article.slug}`} key={article.id}>
+          <ArticlePreview key={article.id} article={article} />
         </Link>
       ))}
     </div>

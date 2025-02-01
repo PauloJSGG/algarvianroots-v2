@@ -1,5 +1,7 @@
 import {
   collection,
+  doc,
+  getDoc,
   getDocs,
   limit,
   orderBy,
@@ -7,18 +9,29 @@ import {
 } from "@firebase/firestore/lite";
 import { db, st } from ".";
 import { getDownloadURL, ref } from "firebase/storage";
-import { EnumLang, IArticle } from "@/types/types";
+import { LanguagesType, IArticle } from "@/types/types";
 import { where } from "@firebase/firestore";
 
-// const getArticle = async (lang: "en" | "pt", id: string) => {
-//   const categoryDocRef = doc(db, "categories", category.id);
-//   const q = query(
-//     collection(db, "courses"),
-//     where("category_reference", "==", categoryDocRef),
-//   );
-// }
+const LOCALES_PATH = "article_locales";
 
-const getArticle = async (slug: string, lang: EnumLang) => {
+const getLocales = async (id: string, lang: LanguagesType) => {
+  const docRef = doc(db, "articles", id, LOCALES_PATH, lang);
+
+  const locales = await getDoc(docRef);
+
+  if (!locales.exists()) {
+    throw new Error("No locales found");
+  }
+
+  return {
+    id: locales.id,
+    title: locales.data().title as string,
+    description: locales.data()?.description || ("" as string),
+    text: locales.data()?.text || ("" as string),
+  };
+};
+
+const getArticle = async (slug: string, lang: LanguagesType) => {
   const collectionRef = collection(db, "articles");
 
   const docQuery = query(
@@ -35,18 +48,22 @@ const getArticle = async (slug: string, lang: EnumLang) => {
   }
 
   const article = docSnapshot.docs[0];
+  const locales = await getLocales(article.id, lang);
 
   return {
     id: article.id,
-    name: article.data()[lang].name as string,
-    description: article.data()[lang].description as string,
     image: (await getDownloadURL(ref(st, article.data().main_image))) as string,
-    text: article.data()[lang].text as string,
+    slug: article.data().slug as string,
+    translations: {
+      title: locales.title as string,
+      description: locales.description || ("" as string),
+      text: locales.text || ("" as string),
+    },
   };
 };
 
 const getLatestArticles: (
-  lang: EnumLang,
+  lang: LanguagesType,
   limitNumber?: number
 ) => Promise<IArticle[]> = async (lang = "en", limitNumber = 3) => {
   const collectionRef = collection(db, "articles");
@@ -64,11 +81,15 @@ const getLatestArticles: (
   }
 
   const articles = querySnapshot.docs.map(async (doc) => {
+    const locales = await getLocales(doc.id, lang);
     return {
       id: doc.id,
-      title: doc.data()[lang].title as string,
-      description: doc.data()[lang].description as string,
       image: (await getDownloadURL(ref(st, doc.data().main_image))) as string,
+      slug: doc.data().slug as string,
+      translations: {
+        title: locales.title as string,
+        description: locales.description || ("" as string),
+      },
     };
   });
 

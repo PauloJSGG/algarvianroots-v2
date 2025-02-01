@@ -1,8 +1,39 @@
-import { collection, getDocs, query, where } from "firebase/firestore/lite";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore/lite";
 import { getDownloadURL, ref } from "firebase/storage";
 import { db, st } from ".";
+import { LanguagesType } from "@/types/types";
 
-const getActivity = async (slug: string) => {
+const LOCALES_PATH = "activity_locales";
+
+const getLocales = async (id: string, lang: string) => {
+  const docRef = doc(db, "activities", id, LOCALES_PATH, lang);
+
+  const locales = await getDoc(docRef);
+
+  if (!locales.exists()) {
+    throw new Error("No locales found");
+  }
+
+  return {
+    id: locales.id,
+    name: locales.data().name as string,
+    description: locales.data().description as string,
+    info: locales.data().info as string,
+    itinerary: locales.data().itinerary as string,
+    what_it_includes: locales.data().what_it_includes as string,
+    points_of_interest: locales.data().points_of_interest as string,
+    what_to_bring: locales.data().what_to_bring as string,
+  };
+};
+
+const getActivity = async (slug: string, lang: LanguagesType) => {
   const collectionRef = collection(db, "activities");
 
   const docQuery = query(collectionRef, where("slug", "==", slug));
@@ -14,17 +45,25 @@ const getActivity = async (slug: string) => {
   }
 
   const activity = docSnapshot.docs[0];
+  const locales = await getLocales(activity.id, lang);
 
   return {
     id: activity.id,
-    name: activity.data().name as string,
-    description: activity.data().description as string,
+    slug: activity.data().slug as string,
     main_image: (await getDownloadURL(
       ref(st, activity.data().main_image)
     )) as string,
-    slug: activity.data().slug as string,
+    translations: {
+      name: locales.name as string,
+      description: locales.description as string,
+      info: locales.info as string,
+      itinerary: locales.itinerary as string,
+      what_it_includes: locales.what_it_includes as string,
+      points_of_interest: locales.points_of_interest as string,
+      what_to_bring: locales.what_to_bring as string,
+    },
   };
-}
+};
 
 const getActivities = async (category: string) => {
   const collectionRef = collection(db, "activities");
@@ -40,19 +79,26 @@ const getActivities = async (category: string) => {
   }
 
   const activities = querySnapshot.docs.map(async (doc) => {
+    const locales = await getLocales(doc.id, "en");
     return {
       id: doc.id,
-      name: doc.data().name as string,
-      description: doc.data().description as string,
+      slug: doc.data().slug as string,
       main_image: (await getDownloadURL(
         ref(st, doc.data().main_image)
       )) as string,
-      slug: doc.data().slug as string,
+      translations: {
+        name: locales.name,
+        description: locales.description,
+        info: locales.info,
+        itinerary: locales.itinerary,
+        what_it_includes: locales.what_it_includes,
+        points_of_interest: locales.points_of_interest,
+        what_to_bring: locales.what_to_bring,
+      },
     };
   });
 
   return Promise.all(activities);
 };
-
 
 export { getActivities, getActivity };

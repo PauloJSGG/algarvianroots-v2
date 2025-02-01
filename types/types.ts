@@ -1,18 +1,27 @@
 export interface IArticle {
   id: string;
-  title: string;
-  description: string;
   image: string;
-  text?: string;
-  slug?: string;
+  slug: string;
+  translations: {
+    title: string;
+    description: string;
+    text?: string;
+  };
 }
 
 export interface IActivity {
   id: string;
-  name: string;
-  description: string;
   main_image: string;
   slug: string;
+  translations: {
+    name: string;
+    description: string;
+    info: string;
+    itinerary: string;
+    what_it_includes: string;
+    points_of_interest: string;
+    what_to_bring: string;
+  };
 }
 
-export type EnumLang = "en" | "pt";
+export type LanguagesType = "en" | "pt";
