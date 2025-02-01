@@ -64,15 +64,15 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/en",
-        permanent: false,
-      },
-    ];
-  },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: "/",
+  //       destination: "/en",
+  //       permanent: false,
+  //     },
+  //   ];
+  // },
 };
 
 export default withBundleAnalyzer({

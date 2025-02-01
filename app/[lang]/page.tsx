@@ -14,6 +14,8 @@ import Footer from "@/components/Footer";
 import { getLatestArticles } from "@/services/firebase/articles";
 // import ArticlePreview from "@/components/ArticlePreview";
 import { ArticlesPreview } from "@/components/ArticlePreview";
+import Link from "next/link";
+// import video from "@/public/videos/landing-page/video.mp4";
 
 type Props = {
   params: Promise<{ lang: "en" | "pt" }>;
@@ -65,7 +67,7 @@ export default async function Page({
         muted
         loop
       >
-        <source src="/LandingPageVideo.mp4" type="video/mp4" />
+        <source src="/videos/landing-page/video.mp4" type="video/mp4" />
       </video>
       <div className="w-full flex flex-col items-center gap-4 bg-white">
         <Image src={seperatorTop} alt="seperator-top" className="max-h-64" />
@@ -75,11 +77,16 @@ export default async function Page({
           <div className="text-3xl">{dict.activities.title}</div>
           <div className="flex gap-4 w-full flex-wrap sm:flex-nowrap">
             {dict.activities.categories.map((category) => (
-              <Rock
+              <Link
+                href={`/activity-categories/${category.slug}/activities`}
                 key={category.title}
-                color={category.color as "yellow" | "blue" | "green"}
-                text={category.title}
-              />
+              >
+                <Rock
+                  key={category.title}
+                  color={category.color as "yellow" | "blue" | "green"}
+                  text={category.title}
+                />
+              </Link>
             ))}
           </div>
         </>
@@ -93,9 +100,7 @@ export default async function Page({
         <Carousel images={images} autoSlide={true} autoSlideInterval={4000} />
 
         {/* Latest 3 articles */}
-        <div className="text-4xl w-80 text-center">
-          {dict.articles.title}
-        </div>
+        <div className="text-4xl w-80 text-center">{dict.articles.title}</div>
 
         <ArticlesPreview articles={articles} />
 

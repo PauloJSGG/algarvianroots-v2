@@ -7,6 +7,7 @@ const Rock = ({
   color: "yellow" | "blue" | "green";
   text: string;
 }) => {
+
   return (
     <div className="relative w-full h-36 sm:h-72 cursor-pointer hover:scale-110 transform transition-transform duration-300">
       <Image src={`/images/rocks/rock-${color}.svg`} alt={text} priority fill />

@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://algarvianroots.com
-
-# Sitemaps
-Sitemap: https://algarvianroots.com/sitemap.xml
