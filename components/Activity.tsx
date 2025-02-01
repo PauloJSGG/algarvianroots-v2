@@ -24,7 +24,7 @@ const Activity = ({ activity }: ActivityPreviewProps) => {
         width={300}
         height={300}
       />
-      <div className="text-sm">{translations.info}</div>
+      <CustomMDX className="text-sm">{translations.info}</CustomMDX>
       <div className="text-sm">{translations.itinerary}</div>
       <div className="text-sm">{translations.what_it_includes}</div>
       <div className="text-sm">{translations.points_of_interest}</div>
