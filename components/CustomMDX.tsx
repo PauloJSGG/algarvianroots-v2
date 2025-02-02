@@ -1,7 +1,9 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
 
-const components: Readonly<MDXComponents> | MergeComponents | null | undefined =
+// const components: Readonly<MDXComponents> | MergeComponents | null | undefined =
+//@ts-expect-error
+const components: any =
   {
     h1: (props) => (
       <h1 {...props} className="large-text">

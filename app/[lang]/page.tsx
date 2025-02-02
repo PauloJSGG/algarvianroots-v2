@@ -15,6 +15,8 @@ import { getLatestArticles } from "@/services/firebase/articles";
 // import ArticlePreview from "@/components/ArticlePreview";
 import { ArticlesPreview } from "@/components/ArticlePreview";
 import Link from "next/link";
+import Loading from "@/components/Loading";
+import { Suspense } from "react";
 // import video from "@/public/videos/landing-page/video.mp4";
 
 type Props = {
@@ -22,31 +24,15 @@ type Props = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-export async function generateMetadata({
-  params,
-}: Props): // parent: ResolvingMetadata
-Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const lang = (await params).lang;
   const dict = await getDictionary(lang);
-  // read route params
-  // const id = (await params).id
-
-  // fetch data
-  // const product = await fetch(`https://.../${id}`).then((res) => res.json())
-
-  // optionally access and extend (rather than replace) parent metadata
-  // const previousImages = (await parent).openGraph?.images || []
 
   return {
     title: dict.mainpage.metadata.title,
     description: dict.mainpage.metadata.description,
-    // openGraph: {
-    //   images: [pao]
-    // },
   };
 }
-
-// random pokemon Images
 const images = [pao, barro];
 
 export default async function Page({
@@ -102,7 +88,9 @@ export default async function Page({
         {/* Latest 3 articles */}
         <div className="text-4xl w-80 text-center">{dict.articles.title}</div>
 
-        <ArticlesPreview articles={articles} />
+        <Suspense fallback={<Loading />}>
+          <ArticlesPreview articles={articles} />
+        </Suspense>
 
         {/* Other */}
         <Image

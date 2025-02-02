@@ -1,5 +1,6 @@
 import { IActivity } from "@/types/types";
 import Image from "next/image";
+import { CustomMDX } from "./CustomMDX";
 
 interface ActivityPreviewProps {
   activity: IActivity;
@@ -7,6 +8,7 @@ interface ActivityPreviewProps {
 
 const Activity = ({ activity }: ActivityPreviewProps) => {
   const { translations } = activity;
+  console.log('translations', translations);
   return (
     // blog style card
     <div
@@ -24,11 +26,11 @@ const Activity = ({ activity }: ActivityPreviewProps) => {
         width={300}
         height={300}
       />
-      <CustomMDX className="text-sm">{translations.info}</CustomMDX>
-      <div className="text-sm">{translations.itinerary}</div>
-      <div className="text-sm">{translations.what_it_includes}</div>
-      <div className="text-sm">{translations.points_of_interest}</div>
-      <div className="text-sm">{translations.what_to_bring}</div>
+      <CustomMDX source={translations.info}/>
+      <CustomMDX source={translations.itinerary}/>
+      <CustomMDX source={translations.what_it_includes}/>
+      <CustomMDX source={translations.points_of_interest}/>
+      <CustomMDX source={translations.what_to_bring}/>
     </div>
   );
 };

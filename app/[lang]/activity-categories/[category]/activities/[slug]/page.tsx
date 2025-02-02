@@ -1,4 +1,4 @@
-import { ActivityPreview } from "@/components/ActivityPreview";
+import Activity from "@/components/Activity";
 import { getActivity } from "@/services/firebase/activities";
 
 const page = async ({
@@ -11,7 +11,7 @@ const page = async ({
   const activity = await getActivity(slug, lang);
   return (
     <div>
-      <ActivityPreview activity={activity} />
+      <Activity activity={activity} />
     </div>
   );
 };
