@@ -17,6 +17,7 @@ import { ArticlesPreview } from "@/components/ArticlePreview";
 import Link from "next/link";
 import Loading from "@/components/Loading";
 import { Suspense } from "react";
+import { Video } from "@/components/Video";
 // import video from "@/public/videos/landing-page/video.mp4";
 
 type Props = {
@@ -47,14 +48,17 @@ export default async function Page({
 
   return (
     <main className="flex flex-col items-center w-full">
-      <video
-        className="w-full h-dvh sticky top-0 -z-10 object-cover"
-        autoPlay
-        muted
-        loop
-      >
-        <source src="/videos/landing-page/video.mp4" type="video/mp4" />
-      </video>
+      <Video
+        desktop={{
+          src: "/videos/landing-page/video.mp4",
+          poster: "/videos/landing-page/poster-desktop.jpg",
+        }}
+        mobile={{
+          src: "/videos/landing-page/video-mobile.mp4",
+          poster: "/videos/landing-page/poster-mobile.jpg",
+        }}
+        className="w-full h-dvh sticky top-0 -z-10"
+      />
       <div className="w-full flex flex-col items-center gap-4 bg-white">
         <Image src={seperatorTop} alt="seperator-top" className="max-h-64" />
 
