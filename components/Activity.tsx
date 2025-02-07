@@ -2,10 +2,11 @@ import { IActivity } from "@/types/types";
 import Image from "next/image";
 import { CustomMDX } from "./CustomMDX";
 import ActivityInfo from "./ActivityInfo";
-import { Clock, Users } from "lucide-react";
+import { Clock, Users, Car } from "lucide-react";
 
 interface ActivityPreviewProps {
   activity: IActivity;
+  dict: 
 }
 
 const Activity = ({ activity }: ActivityPreviewProps) => {
@@ -32,6 +33,13 @@ const Activity = ({ activity }: ActivityPreviewProps) => {
           />
           {activity.quick_info.group && (
             <ActivityInfo icon={Users} text={"test"} tailwindClasses="w-1/2" />
+          )}
+          {activity.quick_info.transport && (
+            <ActivityInfo
+              icon={Car}
+              text={}
+              tailwindClasses="w-1/2"
+            />
           )}
         </section>
       )}

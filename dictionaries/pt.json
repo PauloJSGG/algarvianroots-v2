@@ -53,6 +53,15 @@
   },
   "activities": {
     "title": "As nossas atividades",
+    "activity-info": {
+      "duration": "Duração",
+      "transport": "Transporte",
+      "price": "Preço",
+      "location": "Localização",
+      "language": "Idioma",
+      "group-size": "Tamanho do grupo",
+      "difficulty": "Dificuldade"
+    },
     "categories": [
       {
         "slug": "experiences",

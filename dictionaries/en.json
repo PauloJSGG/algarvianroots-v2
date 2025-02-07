@@ -52,6 +52,12 @@
     "see-more": "See more"
   },
   "activities": {
+    "activity-info": {
+      "duration": "Duration",
+      "transport": "Transport",
+      "price": "Price",
+      "location": "Location"
+    },
     "title": "Our activities",
     "categories": [
       {
