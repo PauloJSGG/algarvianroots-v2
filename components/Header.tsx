@@ -11,9 +11,9 @@ const Header = async ({
   const dict = await getDictionary(lang);
 
   return (
-    <header className="flex justify-between p-4 bg-gray-800 text-white sticky w-full z-50">
+    <header className="sticky z-50 flex w-full justify-between bg-gray-800 p-4 text-white">
       <nav>
-        <ul className="flex gap-4 items-center">
+        <ul className="flex items-center gap-4">
           <li>
             <Image
               src="/Logo_AlgarvianRoots-00.png"
@@ -28,7 +28,7 @@ const Header = async ({
           </li>
           {dict.layout.header.links.map((link) => (
             <li key={link.slug}>
-              <Link href={`/${link.slug}` }>{link.title}</Link>
+              <Link href={`/${link.slug}`}>{link.title}</Link>
             </li>
           ))}
         </ul>

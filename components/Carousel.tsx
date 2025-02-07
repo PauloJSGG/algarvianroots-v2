@@ -39,32 +39,32 @@ const Carousel = ({
   };
 
   return (
-    <div className="relative w-full max-w-3xl mx-auto">
-      <div className="overflow-hidden relative h-64">
+    <div className="relative mx-auto w-full max-w-3xl">
+      <div className="relative h-64 overflow-hidden">
         {images.map((image: StaticImageData, index: number) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-transform transform ${
+            className={`absolute inset-0 transform transition-transform ${
               index === currentIndex ? "translate-x-0" : "translate-x-full"
             }`}
           >
             <Image
               src={image}
               alt={`Slide ${index}`}
-              className="w-full h-full object-cover"
+              className="h-full w-full object-cover"
               // fill
             />
           </div>
         ))}
       </div>
       <button
-        className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-foreground text-white p-2"
+        className="absolute left-0 top-1/2 -translate-y-1/2 transform bg-foreground p-2 text-white"
         onClick={prevSlide}
       >
         <ChevronLeft />
       </button>
       <button
-        className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-foreground text-white p-2"
+        className="absolute right-0 top-1/2 -translate-y-1/2 transform bg-foreground p-2 text-white"
         onClick={nextSlide}
       >
         <ChevronRight />

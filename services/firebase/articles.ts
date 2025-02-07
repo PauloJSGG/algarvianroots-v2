@@ -33,7 +33,7 @@ const getLocales = async (id: string, lang: LanguagesType) => {
 
 const getArticle: (
   slug: string,
-  lang: LanguagesType
+  lang: LanguagesType,
 ) => Promise<IArticle> = async (slug: string, lang: LanguagesType) => {
   const collectionRef = collection(db, "articles");
 
@@ -42,7 +42,7 @@ const getArticle: (
     where("slug", "==", slug),
     where("active", "==", true),
     orderBy("created_at", "desc"),
-    limit(1)
+    limit(1),
   );
 
   const docSnapshot = await getDocs(docQuery);
@@ -69,7 +69,7 @@ const getArticle: (
 
 const getLatestArticles: (
   lang: LanguagesType,
-  limitNumber?: number
+  limitNumber?: number,
 ) => Promise<IArticle[]> = async (lang = "en", limitNumber = 3) => {
   const collectionRef = collection(db, "articles");
 
@@ -77,7 +77,7 @@ const getLatestArticles: (
     collectionRef,
     where("active", "==", true),
     orderBy("created_at", "desc"),
-    limit(limitNumber)
+    limit(limitNumber),
   );
 
   const querySnapshot = await getDocs(latestDocQuery);

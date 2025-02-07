@@ -43,6 +43,10 @@
       "description": "Enter in this adventure and find what the natural and cultural heritage have to offer you. \nAuthentic, different and diverse itineraries. \nGuided hikes, gastronomy tasting, workshops, birdwatching in the Algarve \nEcotourism is a sustainable activity in natural areas, conserves the environment, keep the local people well-being and involves interpretation and education."
     }
   },
+  "about-us": {
+    "title": "About us",
+    "description": "AlgarvianRoots is a tourism entertainment company focused on Ecotourism. We work in partnership with local agents to promote diverse experiences and boost the local economy, valuing the region's endogenous resources.\nOur guides have academic studies in various fields, providing an in-depth interpretation of the experiences we offer, particularly regarding natural and cultural heritage.\nThe artisans, artists, and local producers we collaborate with have dedicated much of their lives to their crafts and take great pleasure in sharing their knowledge and skills.\nThe originality and diversity of the experiences we offer enable an authentic connection with the region"
+  },
   "articles": {
     "title": "Articles",
     "see-more": "See more"

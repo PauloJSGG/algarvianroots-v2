@@ -14,6 +14,24 @@ export interface IActivity {
   id: string;
   main_image: string;
   slug: string;
+  quick_info?: {
+    duration: number;
+    group: boolean;
+    guide: boolean;
+    snack: boolean;
+    transport: boolean;
+    hike: {
+      active: boolean;
+      difficulty?: string;
+      distance?: number;
+      duration?: number;
+    };
+    workshop: {
+      active: boolean;
+      duration?: number;
+      equipment?: string;
+    };
+  };
   translations: {
     name: string;
     description: string;

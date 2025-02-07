@@ -10,12 +10,8 @@ const ActivityPreview = ({ activity }: ActivityPreviewProps) => {
   const { translations } = activity;
   return (
     // blog style card
-    <div
-      className="flex flex-col items-center w-38
-      0 bg-gray-50 p-4 rounded-lg shadow-md
-      "
-    >
-      <div className="flex flex-col items-center w-full">
+    <div className="w-38 0 flex flex-col items-center rounded-lg bg-gray-50 p-4 shadow-md">
+      <div className="flex w-full flex-col items-center">
         <div className="text-lg font-bold">{translations.name}</div>
         <div className="text-sm">{translations.description}</div>
       </div>

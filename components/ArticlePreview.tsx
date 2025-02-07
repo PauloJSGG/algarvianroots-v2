@@ -10,11 +10,7 @@ const ArticlePreview = ({ article }: ArticlePreviewProps) => {
   const { translations } = article;
   return (
     // blog style card
-    <div
-      className="flex flex-col items-center
-    0 bg-gray-50 p-4 rounded-lg shadow-md relative h-full
-    "
-    >
+    <div className="0 relative flex h-full flex-col items-center rounded-lg bg-gray-50 p-4 shadow-md">
       <Image
         src={article.image}
         alt={translations.title}
@@ -22,9 +18,11 @@ const ArticlePreview = ({ article }: ArticlePreviewProps) => {
         className="w-full object-cover"
         style={{ filter: "brightness(0.5)" }}
       />
-      <div className="flex flex-col w-full text-white z-50">
-        <div className="text-sm sm:text-lg font-bold">{translations.title}</div>
-        <div className="text-xs sm:text-sm line-clamp-2">{translations.description}</div>
+      <div className="z-50 flex w-full flex-col text-white">
+        <div className="text-sm font-bold sm:text-lg">{translations.title}</div>
+        <div className="line-clamp-2 text-xs sm:text-sm">
+          {translations.description}
+        </div>
       </div>
     </div>
   );
@@ -38,7 +36,11 @@ const ArticlesPreview = ({ articles }: { articles: IArticle[] }) => {
   return (
     <div className="flex gap-4">
       {articles.map((article) => (
-        <Link href={`articles/${article.slug}`} key={article.id} className="w-1/2 h-48">
+        <Link
+          href={`articles/${article.slug}`}
+          key={article.id}
+          className="h-48 w-1/2"
+        >
           <ArticlePreview key={article.id} article={article} />
         </Link>
       ))}

@@ -11,7 +11,7 @@ export default async function Page({
   const dict = await getDictionary(lang);
 
   return (
-    <div className="flex gap-4 w-full">
+    <div className="flex w-full gap-4">
       {dict.activities.categories.map((category) => (
         <Link
           href={`/activity-categories/${category.slug}/activities`}

@@ -23,7 +23,7 @@ export const Video = ({ desktop, mobile, className }: VideoProps) => {
         />
       </picture>
       <video
-        className="object-cover w-full h-full"
+        className="h-full w-full object-cover"
         autoPlay
         loop
         muted

@@ -8,7 +8,7 @@ import {
 } from "firebase/firestore/lite";
 import { getDownloadURL, ref } from "firebase/storage";
 import { db, st } from ".";
-import { LanguagesType } from "@/types/types";
+import { IActivity, LanguagesType } from "@/types/types";
 
 const LOCALES_PATH = "activity_locales";
 
@@ -33,7 +33,10 @@ const getLocales = async (id: string, lang: string) => {
   };
 };
 
-const getActivity = async (slug: string, lang: LanguagesType) => {
+const getActivity = async (
+  slug: string,
+  lang: LanguagesType,
+): Promise<IActivity> => {
   const collectionRef = collection(db, "activities");
 
   const docQuery = query(collectionRef, where("slug", "==", slug));
@@ -51,8 +54,26 @@ const getActivity = async (slug: string, lang: LanguagesType) => {
     id: activity.id,
     slug: activity.data().slug as string,
     main_image: (await getDownloadURL(
-      ref(st, activity.data().main_image)
+      ref(st, activity.data().main_image),
     )) as string,
+    quick_info: {
+      duration: activity.data().duration as number,
+      group: activity.data().group as boolean,
+      guide: activity.data().guide as boolean,
+      snack: activity.data().snack as boolean,
+      transport: activity.data().transport as boolean,
+      hike: {
+        active: activity.data().hike.active as boolean,
+        difficulty: activity.data().hike.difficulty as string,
+        distance: activity.data().hike.distance as number,
+        duration: activity.data().hike.duration as number,
+      },
+      workshop: {
+        active: activity.data().workshop.active as boolean,
+        duration: activity.data().workshop.duration as number,
+        equipment: activity.data().workshop.equipment as string,
+      },
+    },
     translations: {
       name: locales.name as string,
       description: locales.description as string,
@@ -65,17 +86,17 @@ const getActivity = async (slug: string, lang: LanguagesType) => {
   };
 };
 
-const getActivities = async (category: string) => {
+const getActivities = async (category: string): Promise<IActivity[]> => {
   const collectionRef = collection(db, "activities");
   const activitiesQuery = query(
     collectionRef,
-    where("category", "==", category)
+    where("category", "==", category),
   );
 
   const querySnapshot = await getDocs(activitiesQuery);
 
   if (querySnapshot.docs.length === 0) {
-    throw new Error("No activities found");
+    return [];
   }
 
   const activities = querySnapshot.docs.map(async (doc) => {
@@ -84,7 +105,7 @@ const getActivities = async (category: string) => {
       id: doc.id,
       slug: doc.data().slug as string,
       main_image: (await getDownloadURL(
-        ref(st, doc.data().main_image)
+        ref(st, doc.data().main_image),
       )) as string,
       translations: {
         name: locales.name,

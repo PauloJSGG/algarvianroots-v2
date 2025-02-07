@@ -10,6 +10,11 @@ const page = async ({
 }) => {
   const category = (await params).category;
   const activities = await getActivities(category);
+
+  if (activities.length === 0) {
+    return <div>No activities found</div>;
+  }
+
   return (
     <div>
       <Suspense fallback={<Loading />}>

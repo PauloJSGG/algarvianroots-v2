@@ -1,4 +1,5 @@
 import "@/app/globals.css";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 // import Footer from "@/components/Footer";
 
@@ -24,11 +25,11 @@ export default function RootLayout({
       <body className={`$antialiased`}>
         <Header params={params} />
         {children}
+        <Footer />
       </body>
     </html>
   );
 }
-
 
 // import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";

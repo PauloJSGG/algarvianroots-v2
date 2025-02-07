@@ -9,12 +9,12 @@ const components = {
     </h1>
   ),
   p: (props: { children: React.ReactNode }) => (
-    <p {...props} className="text-sm text-red-600">
+    <p {...props} className="text-sm">
       {props.children}
     </p>
   ),
   img: (props: { src: string }) => (
-    <Image {...props} width={100} height={100} alt="" />
+    <Image {...props} width={500} height={500} alt="" className="" />
   ),
 };
 
