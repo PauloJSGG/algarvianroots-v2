@@ -1,7 +1,5 @@
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import Image from "next/image";
-// import parse from 'html-react-parser'
-// import rehypeReact from "rehype-react";
 
 // const components: Readonly<MDXComponents> | MergeComponents | null | undefined =
 const components = {
@@ -11,13 +9,12 @@ const components = {
     </h1>
   ),
   p: (props: { children: React.ReactNode }) => (
-    <p {...props} className="text-sm">
+    <p {...props} className="text-sm text-red-600">
       {props.children}
     </p>
   ),
-  span: (props: { children: string }) => <h1>hay</h1>,
   img: (props: { src: string }) => (
-    <Image {...props} width={300} height={300} alt="" />
+    <Image {...props} width={100} height={100} alt="" />
   ),
 };
 
@@ -26,13 +23,6 @@ export function CustomMDX(props: MDXRemoteProps) {
     <MDXRemote
       {...props}
       components={{ ...components, ...(props.components || {}) }}
-      options={{
-        mdxOptions: {
-          // plugin to fix html parsing to react
-          // rehypePlugins: [rehypeReact],
-          format: "mdx",
-        },
-      }}
     />
   );
 }

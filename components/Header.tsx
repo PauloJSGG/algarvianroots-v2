@@ -28,7 +28,7 @@ const Header = async ({
           </li>
           {dict.layout.header.links.map((link) => (
             <li key={link.slug}>
-              <Link href={link.slug}>{link.title}</Link>
+              <Link href={`/${link.slug}` }>{link.title}</Link>
             </li>
           ))}
         </ul>
