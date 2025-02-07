@@ -8,7 +8,6 @@ interface ActivityPreviewProps {
 
 const Activity = ({ activity }: ActivityPreviewProps) => {
   const { translations } = activity;
-  console.log('translations', translations);
   return (
     // blog style card
     <div

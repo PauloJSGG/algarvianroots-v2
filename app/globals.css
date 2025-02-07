@@ -4,7 +4,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #197246;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,3 +24,4 @@ body {
   background: var(--background);
   font-family: "Salvatore", Arial, Helvetica, sans-serif;
 }
+

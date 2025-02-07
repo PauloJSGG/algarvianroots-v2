@@ -18,6 +18,7 @@ import Link from "next/link";
 import Loading from "@/components/Loading";
 import { Suspense } from "react";
 import { Video } from "@/components/Video";
+import Badge from "@/components/ui/badge";
 // import video from "@/public/videos/landing-page/video.mp4";
 
 type Props = {
@@ -94,6 +95,9 @@ export default async function Page({
 
         <Suspense fallback={<Loading />}>
           <ArticlesPreview articles={articles} />
+          <Link href="/articles">
+            <Badge text={dict.articles["see-more"]} />
+          </Link>
         </Suspense>
 
         {/* Other */}

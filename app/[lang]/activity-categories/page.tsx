@@ -14,7 +14,7 @@ export default async function Page({
     <div className="flex gap-4 w-full">
       {dict.activities.categories.map((category) => (
         <Link
-          href={`/${lang}/activity-categories/${category.slug}/activities`}
+          href={`/activity-categories/${category.slug}/activities`}
           key={category.title}
         >
           <Rock

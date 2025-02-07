@@ -1,10 +1,28 @@
 {
   "layout": {
     "header": {
-      "home": "Home",
-      "about-us": "About us",
-      "activities": "Activities",
-      "contact": "Contact"
+      "links": [
+        {
+          "slug": "home",
+          "title": "Home"
+        },
+        {
+          "slug": "about-us",
+          "title": "About us"
+        },
+        {
+          "slug": "activity-categories",
+          "title": "Activities"
+        },
+        {
+          "slug": "articles",
+          "title": "Articles"
+        },
+        {
+          "slug": "contact",
+          "title": "Contact"
+        }
+      ]
     },
     "footer": {
       "contact": "Contact",
@@ -27,7 +45,7 @@
   },
   "articles": {
     "title": "Articles",
-    "read-more": "Learn more"
+    "see-more": "See more"
   },
   "activities": {
     "title": "Our activities",

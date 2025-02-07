@@ -6,11 +6,11 @@ import {
   limit,
   orderBy,
   query,
+  where,
 } from "@firebase/firestore/lite";
 import { db, st } from ".";
 import { getDownloadURL, ref } from "firebase/storage";
 import { LanguagesType, IArticle } from "@/types/types";
-import { where } from "@firebase/firestore";
 
 const LOCALES_PATH = "article_locales";
 
@@ -31,12 +31,16 @@ const getLocales = async (id: string, lang: LanguagesType) => {
   };
 };
 
-const getArticle = async (slug: string, lang: LanguagesType) => {
+const getArticle: (
+  slug: string,
+  lang: LanguagesType
+) => Promise<IArticle> = async (slug: string, lang: LanguagesType) => {
   const collectionRef = collection(db, "articles");
 
   const docQuery = query(
     collectionRef,
     where("slug", "==", slug),
+    where("active", "==", true),
     orderBy("created_at", "desc"),
     limit(1)
   );
@@ -54,6 +58,7 @@ const getArticle = async (slug: string, lang: LanguagesType) => {
     id: article.id,
     image: (await getDownloadURL(ref(st, article.data().main_image))) as string,
     slug: article.data().slug as string,
+    link: article.data().link as string,
     translations: {
       title: locales.title as string,
       description: locales.description || ("" as string),
@@ -70,6 +75,7 @@ const getLatestArticles: (
 
   const latestDocQuery = query(
     collectionRef,
+    where("active", "==", true),
     orderBy("created_at", "desc"),
     limit(limitNumber)
   );
@@ -86,6 +92,7 @@ const getLatestArticles: (
       id: doc.id,
       image: (await getDownloadURL(ref(st, doc.data().main_image))) as string,
       slug: doc.data().slug as string,
+      link: doc.data().link as string,
       translations: {
         title: locales.title as string,
         description: locales.description || ("" as string),

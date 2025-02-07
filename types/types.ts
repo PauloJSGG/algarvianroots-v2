@@ -2,6 +2,7 @@ export interface IArticle {
   id: string;
   image: string;
   slug: string;
+  link?: string;
   translations: {
     title: string;
     description: string;

@@ -11,20 +11,21 @@ const ArticlePreview = ({ article }: ArticlePreviewProps) => {
   return (
     // blog style card
     <div
-      className="flex flex-col items-center w-38
-    0 bg-gray-50 p-4 rounded-lg shadow-md
+      className="flex flex-col items-center
+    0 bg-gray-50 p-4 rounded-lg shadow-md relative h-full
     "
     >
-      <div className="flex flex-col items-center w-full">
-        <div className="text-lg font-bold">{translations.title}</div>
-        <div className="text-sm">{translations.description}</div>
-      </div>
       <Image
         src={article.image}
         alt={translations.title}
-        width={300}
-        height={300}
+        fill
+        className="w-full object-cover"
+        style={{ filter: "brightness(0.5)" }}
       />
+      <div className="flex flex-col w-full text-white z-50">
+        <div className="text-sm sm:text-lg font-bold">{translations.title}</div>
+        <div className="text-xs sm:text-sm line-clamp-2">{translations.description}</div>
+      </div>
     </div>
   );
 };
@@ -37,7 +38,7 @@ const ArticlesPreview = ({ articles }: { articles: IArticle[] }) => {
   return (
     <div className="flex gap-4">
       {articles.map((article) => (
-        <Link href={`articles/${article.slug}`} key={article.id}>
+        <Link href={`articles/${article.slug}`} key={article.id} className="w-1/2 h-48">
           <ArticlePreview key={article.id} article={article} />
         </Link>
       ))}
