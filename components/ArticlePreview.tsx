@@ -1,4 +1,5 @@
 import { IArticle } from "@/types/types";
+import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,16 +11,29 @@ const ArticlePreview = ({ article }: ArticlePreviewProps) => {
   const { translations } = article;
   return (
     // blog style card
-    <div className="0 relative flex h-full flex-col items-center rounded-lg bg-gray-50 p-4 shadow-md">
+    <div className="0 relative flex h-full flex-col items-center bg-gray-50 p-4 shadow-md">
       <Image
         src={article.image}
         alt={translations.title}
         fill
-        className="w-full object-cover"
+        className={clsx(
+          "absolute left-0 top-0 h-full w-full object-cover",
+          "z-0 blur-[px] brightness-50 filter rounded-3xl",
+          // "transition-transform duration-700 ease-out hover:scale-110",
+        )}
         style={{ filter: "brightness(0.5)" }}
       />
-      <div className="z-50 flex w-full flex-col text-white">
-        <div className="text-sm font-bold sm:text-lg">{translations.title}</div>
+      <div className="z-10 flex w-full flex-col text-white">
+        <div
+          className={clsx(
+            "text-sm font-bold sm:text-lg",
+            "line-clamp-1",
+          )}
+        >
+          {translations.title}
+        </div>
+        {/* seperator */}
+        <div className="h-0.5 w-full bg-secondary mb-2" />
         <div className="line-clamp-2 text-xs sm:text-sm">
           {translations.description}
         </div>

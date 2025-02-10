@@ -1,6 +1,8 @@
 import "@/app/globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { getDictionary } from "@/app/[lang]/dictionaries";
+import { ThemeProvider } from "next-themes";
 // import Footer from "@/components/Footer";
 
 // const geistSans = Geist({
@@ -13,19 +15,26 @@ import Header from "@/components/Header";
 //   subsets: ["latin"],
 // });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode;
   params: Promise<{ lang: "en" | "pt" }>;
 }>) {
+  const lang = (await params).lang;
+  const dict = await getDictionary(lang);
+  const menuDict = dict.layout.header.links;
   return (
-    <html lang="en">
+    <html suppressHydrationWarning>
       <body className={`$antialiased`}>
-        <Header params={params} />
-        {children}
-        <Footer />
+        <ThemeProvider>
+          <Header lang={lang} links={menuDict} />
+          <main className="min-h-vh flex w-full flex-col items-center overflow-y-scroll">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

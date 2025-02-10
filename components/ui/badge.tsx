@@ -6,7 +6,7 @@ interface BadgeProps {
 const Badge = (props: BadgeProps) => {
   const color = props.color || "foreground";
   return (
-    <div className={`bg-${color} z-50 rounded-2xl p-1 px-3 text-white`}>
+    <div className={`bg-${color} z-30 rounded-2xl p-1 px-3 text-white`}>
       {props.text}
     </div>
   );

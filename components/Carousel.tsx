@@ -5,6 +5,7 @@ import Image, { StaticImageData } from "next/image";
 // import arrow left from lucid
 // import arrow right from lucid
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import clsx from "clsx";
 
 interface CarouselProps {
   images: StaticImageData[];
@@ -44,15 +45,15 @@ const Carousel = ({
         {images.map((image: StaticImageData, index: number) => (
           <div
             key={index}
-            className={`absolute inset-0 transform transition-transform ${
-              index === currentIndex ? "translate-x-0" : "translate-x-full"
-            }`}
+            className={clsx(
+              "absolute inset-0 transform rounded-2xl transition-transform",
+              index === currentIndex ? "translate-x-0" : "translate-x-full",
+            )}
           >
             <Image
               src={image}
               alt={`Slide ${index}`}
-              className="h-full w-full object-cover"
-              // fill
+              className="h-full w-full rounded-2xl object-cover"
             />
           </div>
         ))}

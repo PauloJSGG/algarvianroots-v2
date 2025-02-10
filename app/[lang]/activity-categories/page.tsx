@@ -1,6 +1,9 @@
 import Rock from "@/components/Rock";
 import { getDictionary } from "../dictionaries";
 import Link from "next/link";
+import River from "@/public/images/activity-categories/river.jpg";
+import Image from "next/image";
+import clsx from "clsx";
 
 export default async function Page({
   params,
@@ -11,19 +14,30 @@ export default async function Page({
   const dict = await getDictionary(lang);
 
   return (
-    <div className="flex w-full gap-4">
-      {dict.activities.categories.map((category) => (
-        <Link
-          href={`/activity-categories/${category.slug}/activities`}
-          key={category.title}
-        >
-          <Rock
+    <section className="container">
+      <Image
+        className={clsx(
+          "absolute top-0 -z-10 w-full object-cover",
+          "blur-[1px] brightness-50 filter",
+        )}
+        src={River}
+        alt="River"
+        fill
+      />
+      <div className="flex h-[75vh] w-full flex-wrap items-center justify-center gap-4 sm:flex-nowrap">
+        {dict.activities.categories.map((category) => (
+          <Link
+            href={`/activity-categories/${category.slug}/activities`}
             key={category.title}
-            color={category.color as "yellow" | "blue" | "green"}
-            text={category.title}
-          />
-        </Link>
-      ))}
-    </div>
+          >
+            <Rock
+              key={category.title}
+              color={category.color as "yellow" | "blue" | "green"}
+              text={category.title}
+            />
+          </Link>
+        ))}
+      </div>
+    </section>
   );
 }

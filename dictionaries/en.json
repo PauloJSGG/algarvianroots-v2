@@ -40,12 +40,31 @@
     "description": "Este é um dicionário de exemplo.",
     "about-us": {
       "title": "About us",
-      "description": "Enter in this adventure and find what the natural and cultural heritage have to offer you. \nAuthentic, different and diverse itineraries. \nGuided hikes, gastronomy tasting, workshops, birdwatching in the Algarve \nEcotourism is a sustainable activity in natural areas, conserves the environment, keep the local people well-being and involves interpretation and education."
+      "description": "Enter in this adventure and find what the natural and cultural heritage have to offer you. \nAuthentic, different and diverse itineraries. \nGuided hikes, gastronomy tasting, workshops, birdwatching in the Algarve \nEcotourism is a sustainable activity in natural areas, conserves the environment, keep the local people well-being and involves interpretation and education.",
+      "see-more": "Know more"
     }
   },
   "about-us": {
     "title": "About us",
-    "description": "AlgarvianRoots is a tourism entertainment company focused on Ecotourism. We work in partnership with local agents to promote diverse experiences and boost the local economy, valuing the region's endogenous resources.\nOur guides have academic studies in various fields, providing an in-depth interpretation of the experiences we offer, particularly regarding natural and cultural heritage.\nThe artisans, artists, and local producers we collaborate with have dedicated much of their lives to their crafts and take great pleasure in sharing their knowledge and skills.\nThe originality and diversity of the experiences we offer enable an authentic connection with the region"
+    "description": "AlgarvianRoots is a tourism entertainment company focused on Ecotourism. We work in partnership with local agents to promote diverse experiences and boost the local economy, valuing the region's endogenous resources.\nOur guides have academic studies in various fields, providing an in-depth interpretation of the experiences we offer, particularly regarding natural and cultural heritage.\nThe artisans, artists, and local producers we collaborate with have dedicated much of their lives to their crafts and take great pleasure in sharing their knowledge and skills.\nThe originality and diversity of the experiences we offer enable an authentic connection with the region",
+    "see-more": "Know more",
+    "team": {
+      "title": "Our team",
+      "members": [
+        {
+          "name": "Francisco Simões",
+          "role": "CEO",
+          "image-id": "francisco",
+          "description": "Francisco is a biologist with a passion for the Algarve's natural heritage. He has been working in ecotourism for over 10 years and is committed to promoting sustainable tourism in the region."
+        },
+        {
+          "name": "Rafael Lima",
+          "role": "Guide",
+          "image-id": "rafael",
+          "description": "Rafael is a local historian who specializes in the region's cultural heritage. He offers guided tours of the Algarve's historic sites and traditional villages."
+        }
+      ]
+    }
   },
   "articles": {
     "title": "Articles",
@@ -59,6 +78,11 @@
       "location": "Location"
     },
     "title": "Our activities",
+    "categories-key-values": {
+      "workshops": "Workshops",
+      "tours": "Tours",
+      "experiences": "Experiences"
+    },
     "categories": [
       {
         "slug": "experiences",

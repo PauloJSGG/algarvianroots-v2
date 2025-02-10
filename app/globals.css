@@ -1,18 +1,82 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+@theme {
+  --color-rootsgreen: oklch(48.99% 0.1078 156.33);
+  --color-rootsyellow: oklch(76.23% 0.1487 88.04);
+  --color-rootsblue: oklch(52.13% 0.1129 246.12);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-secondary: var(--secondary);
+}
 :root {
   --background: #ffffff;
-  --foreground: #197246;
+  --foreground: var(--color-rootsgreen);
+  --secondary: var(--color-rootsyellow);
+}
+[data-theme="green"] {
+  --background: #ffffff;
+  --foreground: var(--color-rootsgreen);
+  --secondary: var(--color-rootsyellow);
+}
+[data-theme="blue"] {
+  --background: #ffffff;
+  --foreground: var(--color-rootsblue);
+  --secondary: var(--color-rootsyellow);
+}
+[data-theme="yellow"] {
+  --background: #ffffff;
+  --foreground: var(--color-rootsyellow);
+  --secondary: var(--color-rootsblue);
 }
 
-@media (prefers-color-scheme: dark) {
+/* :root {
+  --background: #ffffff;
+  --foreground: var(--color-rootsgreen);
+  --secondary: var(--color-rootsyellow);
+} */
+/* @layer base {
   :root {
     --background: #fff;
     --foreground: #197246;
+    --secondary: #d9ab20;
+  }
+
+  .blue {
+    --background: #fff;
+    --foreground: #266EA6;
+    --secondary: #d9ab20;
+  }
+
+  .yellow {
+    --background: #fff;
+    --foreground: #d9ab20;
+    --secondary: #197246;
+  }
+} */
+/* @media (prefers-color-scheme: light) {
+  :root {
+    --background: #fff;
+    --foreground: #197246;
+    --secondary: #d9ab20;
   }
 }
+
+@media (prefers-color-scheme: blue) {
+  :root {
+    --background: #fff;
+    --foreground: #266EA6;
+    --secondary: #d9ab20;
+  }
+}
+
+@media (prefers-color-scheme: yellow) {
+  :root {
+    --background: #fff;
+    --foreground: #d9ab20;
+    --secondary: #197246;
+  }
+} */
 
 @font-face {
   font-family: "Salvatore"; /*a name to be used later*/
@@ -23,4 +87,25 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: "Salvatore", Arial, Helvetica, sans-serif;
+}
+
+.link-underline {
+  border-bottom-width: 0;
+  background-image: linear-gradient(transparent, transparent),
+    linear-gradient(var(--secondary), var(--secondary));
+  background-size: 0 3px;
+  z-index: -1;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s ease-in-out;
+}
+
+.link-underline-black {
+  background-image: linear-gradient(transparent, transparent),
+    linear-gradient(#f2c, #f2c);
+}
+
+.link-underline:hover {
+  background-size: 100% 3px;
+  background-position: 0 100%;
 }

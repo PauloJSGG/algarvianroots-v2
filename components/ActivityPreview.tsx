@@ -1,4 +1,5 @@
 import { IActivity } from "@/types/types";
+import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,17 +11,31 @@ const ActivityPreview = ({ activity }: ActivityPreviewProps) => {
   const { translations } = activity;
   return (
     // blog style card
-    <div className="w-38 0 flex flex-col items-center rounded-lg bg-gray-50 p-4 shadow-md">
-      <div className="flex w-full flex-col items-center">
-        <div className="text-lg font-bold">{translations.name}</div>
-        <div className="text-sm">{translations.description}</div>
-      </div>
+    <div className="0 relative flex h-full flex-col items-center bg-gray-50 p-4 shadow-md">
       <Image
         src={activity.main_image}
         alt={translations.name}
-        width={300}
-        height={300}
+        fill
+        className={clsx(
+          "absolute left-0 top-0 h-full w-full object-cover",
+          "z-0 rounded-3xl blur-[px] brightness-50 filter",
+          // "transition-transform duration-700 ease-out hover:scale-110",
+        )}
+        style={{ filter: "brightness(0.5)" }}
       />
+      <div className="z-50 flex w-full flex-col text-white">
+        <div
+          className={clsx(
+            "decoration-secondary text-sm font-bold underline decoration-[2px] sm:decoration-[2px] sm:text-lg h-6 sm:h-8",
+            "mb-2 line-clamp-1 underline-offset-[6px]",
+          )}
+        >
+          {translations.name}
+        </div>
+        <div className="line-clamp-3 text-xs sm:text-sm">
+          {translations.description}
+        </div>
+      </div>
     </div>
   );
 };

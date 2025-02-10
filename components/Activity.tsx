@@ -6,7 +6,6 @@ import { Clock, Users, Car } from "lucide-react";
 
 interface ActivityPreviewProps {
   activity: IActivity;
-  dict: 
 }
 
 const Activity = ({ activity }: ActivityPreviewProps) => {
@@ -35,11 +34,7 @@ const Activity = ({ activity }: ActivityPreviewProps) => {
             <ActivityInfo icon={Users} text={"test"} tailwindClasses="w-1/2" />
           )}
           {activity.quick_info.transport && (
-            <ActivityInfo
-              icon={Car}
-              text={}
-              tailwindClasses="w-1/2"
-            />
+            <ActivityInfo icon={Car} text={} tailwindClasses="w-1/2" />
           )}
         </section>
       )}

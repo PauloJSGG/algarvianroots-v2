@@ -40,12 +40,31 @@
     "description": "Este é um dicionário de exemplo.",
     "about-us": {
       "title": "Sobre nós",
-      "description": "Enter in this adventure and find what the natural and cultural heritage have to offer you. Authentic, different and diverse itineraries. \nGuided hikes, gastronomy tasting, workshops, birdwatching in the Algarve \nEcotourism is a sustainable activity in natural areas, conserves the environment, keep the local people well-being and involves interpretation and education."
+      "description": "Entre nesta aventura e descubra o que o património natural e cultural têm para lhe oferecer. \nItinerários autênticos, diferentes e diversificados. \nCaminhadas guiadas, provas gastronómicas, workshops, observação de aves no Algarve \nO ecoturismo é uma atividade sustentável em áreas naturais, conserva o ambiente, mantém o bem-estar das populações locais e envolve interpretação e educação.",
+      "see-more": "Saber mais"
     }
   },
   "about-us": {
     "title": "Sobre nós",
-    "description": "A AlgarvianRoots é uma empresa de animação turística focada no Ecoturismo. Trabalhamos em parceria com agentes locais para promover experiências diversas e impulsionar a economia local, valorizando os recursos endógenos da região.\nOs nossos guias têm estudos académicos em diversas áreas, proporcionando uma interpretação aprofundada das experiências que oferecemos, particularmente no que diz respeito ao património natural e cultural.\nOs artesãos, artistas e produtores locais com quem colaboramos dedicaram grande parte das suas vidas às suas artes e têm muito prazer em partilhar os seus conhecimentos e competências.\nA originalidade e diversidade das experiências que oferecemos permitem uma ligação autêntica com a região."
+    "description": "A AlgarvianRoots é uma empresa de animação turística focada no Ecoturismo. Trabalhamos em parceria com agentes locais para promover experiências diversas e impulsionar a economia local, valorizando os recursos endógenos da região.\nOs nossos guias têm estudos académicos em diversas áreas, proporcionando uma interpretação aprofundada das experiências que oferecemos, particularmente no que diz respeito ao património natural e cultural.\nOs artesãos, artistas e produtores locais com quem colaboramos dedicaram grande parte das suas vidas às suas artes e têm muito prazer em partilhar os seus conhecimentos e competências.\nA originalidade e diversidade das experiências que oferecemos permitem uma ligação autêntica com a região.",
+    "see-more": "Saber mais",
+    "team": {
+      "title": "A nossa equipa",
+      "members": [
+        {
+          "name": "Francisco Simões",
+          "role": "CEO",
+          "image-id": "francisco",
+          "description": "Francisco é biólogo com uma paixão pelo património natural do Algarve. Trabalha em ecoturismo há mais de 10 anos e está empenhado em promover o turismo sustentável na região."
+        },
+        {
+          "name": "Rafael Lima",
+          "role": "Guia",
+          "image-id": "rafael",
+          "description": "Rafael é um guia turístico experiente com um conhecimento profundo da história e cultura do Algarve. Ele adora partilhar as suas histórias e experiências com os visitantes."
+        }
+      ]
+    }
   },
   "articles": {
     "title": "Artigos",
@@ -61,6 +80,11 @@
       "language": "Idioma",
       "group-size": "Tamanho do grupo",
       "difficulty": "Dificuldade"
+    },
+    "categories-key-values": {
+      "workshops": "Workshops",
+      "tours": "Tours",
+      "experiences": "Experiências"
     },
     "categories": [
       {

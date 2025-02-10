@@ -47,7 +47,7 @@ export default async function Page({
   const articles = await getLatestArticles(lang);
 
   return (
-    <main className="flex w-full flex-col items-center">
+    <>
       <Video
         desktop={{
           src: "/videos/landing-page/video.mp4",
@@ -63,8 +63,8 @@ export default async function Page({
         <Image src={seperatorTop} alt="seperator-top" className="max-h-64" />
 
         {/* Activities */}
-        <>
-          <div className="text-3xl">{dict.activities.title}</div>
+        <section className="container">
+          <div className="text-center text-3xl">{dict.activities.title}</div>
           <div className="flex w-full flex-wrap justify-center gap-4 sm:flex-nowrap">
             {dict.activities.categories.map((category) => (
               <Link
@@ -79,29 +79,38 @@ export default async function Page({
               </Link>
             ))}
           </div>
-        </>
+        </section>
 
         {/* About Us */}
-        <div className="text-3xl">{dict.mainpage["about-us"].title}</div>
-        <div className="w-1/2 text-center text-xl">
-          {dict.mainpage["about-us"].description}
-        </div>
 
-        <Carousel
-          images={[bread, clay]}
-          autoSlide={true}
-          autoSlideInterval={4000}
-        />
+        <section className="container text-center">
+          <div className="text-3xl">{dict.mainpage["about-us"].title}</div>
+          <div className="text-center text-xl">
+            {dict.mainpage["about-us"].description}
+          </div>
+          <Link href="/about-us" className="m-4 flex justify-center">
+            <Badge text={dict.mainpage["about-us"]["see-more"]} />
+          </Link>
+
+          <Carousel
+            images={[bread, clay]}
+            autoSlide={true}
+            autoSlideInterval={4000}
+          />
+        </section>
 
         {/* Latest 3 articles */}
-        <div className="w-80 text-center text-4xl">{dict.articles.title}</div>
-
-        <Suspense fallback={<Loading />}>
-          <ArticlesPreview articles={articles} />
-          <Link href="/articles">
-            <Badge text={dict.articles["see-more"]} />
-          </Link>
-        </Suspense>
+        <section className="container">
+          <div className="w-full text-center text-4xl">
+            {dict.articles.title}
+          </div>
+          <Suspense fallback={<Loading />}>
+            <ArticlesPreview articles={articles} />
+            <Link href="/articles" className="m-4 flex justify-center">
+              <Badge text={dict.articles["see-more"]} />
+            </Link>
+          </Suspense>
+        </section>
 
         {/* Other */}
         <Image
@@ -112,6 +121,6 @@ export default async function Page({
       </div>
 
       {/* <Carousel images={images} autoSlide={true} autoSlideInterval={4000} /> */}
-    </main>
+    </>
   );
 }

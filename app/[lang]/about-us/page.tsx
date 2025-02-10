@@ -8,23 +8,46 @@ import workshop from "@/public/images/about-us/workshop.jpg";
 import tile from "@/public/images/about-us/tile.jpg";
 import Carousel from "@/components/Carousel";
 import { getDictionary } from "@/app/[lang]/dictionaries";
+import Image from "next/image";
 
 const page = async ({ params }: { params: Promise<{ lang: "en" | "pt" }> }) => {
   const lang = (await params).lang;
   const dict = await getDictionary(lang);
 
   return (
-    <div className="flex w-full flex-col items-center gap-4">
-      <div className="w-1/2 text-center text-3xl">{dict["about-us"].title}</div>
-      <div className="w-1/2 text-center text-xl">
-        {dict["about-us"].description}
-      </div>
-      <Carousel
-        images={[cliff, selfie, forest, dad, river, tour, workshop, tile]}
-        autoSlide={true}
-        autoSlideInterval={4000}
-      />
-    </div>
+    <>
+      <section className="container">
+        <div className="text-center text-3xl">{dict["about-us"].title}</div>
+        <div className="text-center text-xl">
+          {dict["about-us"].description}
+        </div>
+        <Carousel
+          images={[cliff, selfie, forest, dad, river, tour, workshop, tile]}
+          autoSlide={true}
+          autoSlideInterval={4000}
+        />
+      </section>
+      <section className="container">
+        <div className="text-center text-3xl">
+          {dict["about-us"].team.title}
+        </div>
+        <div className="flex justify-center">
+          {dict["about-us"].team.members.map((member) => (
+            <div key={member.name} className="flex flex-col items-center gap-4">
+              <Image
+                src={`/images/about-us/team/${member["image-id"]}.png`}
+                alt={member.name}
+                width={128}
+                height={128}
+                className="h-32 w-32 rounded-full"
+              />
+              <div className="text-xl">{member.name}</div>
+              <div>{member.role}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
   );
 };
 
