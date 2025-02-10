@@ -89,7 +89,7 @@ export default async function Page({
             {dict.mainpage["about-us"].description}
           </div>
           <Link href="/about-us" className="m-4 flex justify-center">
-            <Badge text={dict.mainpage["about-us"]["see-more"]} />
+            {/* <Badge text={dict.mainpage["about-us"]["see-more"]} /> */}
           </Link>
 
           <Carousel
