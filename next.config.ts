@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
 
   experimental: {
     turbo: {
+      resolveAlias: {
+        "@": require.resolve("."),
+      },
       rules: {
         "*.svg": {
           loaders: ["@svgr/webpack"],
