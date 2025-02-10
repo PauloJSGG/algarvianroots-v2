@@ -17,7 +17,7 @@ const ActivityPreview = ({ activity }: ActivityPreviewProps) => {
         alt={translations.name}
         fill
         className={clsx(
-          "absolute left-0 top-0 h-full w-full object-cover",
+          "absolute top-0 left-0 h-full w-full object-cover",
           "z-0 rounded-3xl blur-[px] brightness-50 filter",
           // "transition-transform duration-700 ease-out hover:scale-110",
         )}
@@ -26,7 +26,7 @@ const ActivityPreview = ({ activity }: ActivityPreviewProps) => {
       <div className="z-50 flex w-full flex-col text-white">
         <div
           className={clsx(
-            "decoration-secondary text-sm font-bold underline decoration-[2px] sm:decoration-[2px] sm:text-lg h-6 sm:h-8",
+            "decoration-secondary h-6 text-sm font-bold underline decoration-[2px] sm:h-8 sm:text-lg sm:decoration-[2px]",
             "mb-2 line-clamp-1 underline-offset-[6px]",
           )}
         >

@@ -10,7 +10,6 @@ import seperatorBottom from "@/public/images/seperator-bottom.png";
 import bread from "@/public/images/landing-page/bread.jpg";
 import clay from "@/public/images/landing-page/clay.jpg";
 import type { Metadata } from "next";
-import Footer from "@/components/Footer";
 import { getLatestArticles } from "@/services/firebase/articles";
 // import ArticlePreview from "@/components/ArticlePreview";
 import { ArticlesPreview } from "@/components/ArticlePreview";
@@ -57,13 +56,14 @@ export default async function Page({
           src: "/videos/landing-page/video-mobile.mp4",
           poster: "/videos/landing-page/poster-mobile.jpg",
         }}
-        className="sticky top-0 -z-10 h-dvh w-full"
+        className="fixed top-0 -z-10 h-full w-full"
       />
+      <div className="h-[100vh] bg-transparent"></div>
       <div className="flex w-full flex-col items-center gap-4 bg-white">
         <Image src={seperatorTop} alt="seperator-top" className="max-h-64" />
 
         {/* Activities */}
-        <section className="container">
+        <section className="bg-background container">
           <div className="text-center text-3xl">{dict.activities.title}</div>
           <div className="flex w-full flex-wrap justify-center gap-4 sm:flex-nowrap">
             {dict.activities.categories.map((category) => (

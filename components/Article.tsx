@@ -9,7 +9,7 @@ interface ArticleProps {
 const Article = ({ article }: ArticleProps) => {
   const { translations } = article;
   return (
-    <div className="w-38 0 flex flex-col items-center rounded-lg bg-gray-50 p-4 shadow-md">
+    <div className="flex flex-col items-center rounded-lg bg-gray-50 p-4 shadow-md">
       <Image
         src={article.image}
         alt={translations.title}

@@ -18,29 +18,39 @@ const Header = ({
   const [menuHidden, setMenuHidden] = useState(true);
   const { setTheme } = useTheme();
 
+  // const handleClickOutside = (e:
+  //   | React.MouseEvent<HTMLDivElement, MouseEvent>
+  // ) => {
+  //   if (e.target.closest("header")) return;
+  //   setMenuHidden(true);
+  // };
+
   return (
     <>
       <header className="sticky top-0 z-50 flex w-full justify-between bg-transparent p-4 text-white">
         <div className="flex items-center gap-4">
           {menuHidden ? (
-            <button onClick={() => setMenuHidden(!menuHidden)} className="text-foreground">
-            <Menu
-              size={48}
-              // color="#197246"
-              className="hover:animate-heartbeat-slow cursor-pointer"
-            />
+            <button
+              onClick={() => setMenuHidden(!menuHidden)}
+              className="text-foreground"
+            >
+              <Menu
+                size={48}
+                // color="#197246"
+                className="hover:animate-heartbeat-slow cursor-pointer"
+              />
             </button>
           ) : (
             <button
               onClick={() => setMenuHidden(!menuHidden)}
               className="text-foreground"
             >
-            <X
-              size={48}
-              className="hover:animate-heartbeat-slow cursor-pointer"
-              onClick={() => setMenuHidden(!menuHidden)}
-            />
-          </button>
+              <X
+                size={48}
+                className="hover:animate-heartbeat-slow cursor-pointer"
+                onClick={() => setMenuHidden(!menuHidden)}
+              />
+            </button>
           )}
 
           <Image
@@ -63,6 +73,7 @@ const Header = ({
           // animate on show
           // { "animate-fade-in": !menuHidden },
         )}
+        // onClick={handleClickOutside}
       >
         {links.map((link) => (
           <Link
@@ -76,15 +87,15 @@ const Header = ({
         ))}
         <div className="flex gap-4">
           <button
-            className="bg-rootsgreen w-2 h-2 cursor-pointer"
+            className="bg-rootsgreen h-2 w-2 cursor-pointer"
             onClick={() => setTheme("green")}
           ></button>
           <button
-            className="bg-rootsblue w-2 h-2 cursor-pointer"
+            className="bg-rootsblue h-2 w-2 cursor-pointer"
             onClick={() => setTheme("blue")}
           ></button>
           <button
-            className="bg-rootsyellow w-2 h-2 cursor-pointer"
+            className="bg-rootsyellow h-2 w-2 cursor-pointer"
             onClick={() => setTheme("yellow")}
           ></button>
         </div>

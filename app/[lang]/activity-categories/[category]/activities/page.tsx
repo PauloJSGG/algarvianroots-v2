@@ -10,7 +10,10 @@ const page = async ({
   params: Promise<{ lang: "en" | "pt"; category: string }>;
 }) => {
   const lang = (await params).lang;
-  const category = (await params).category as "workshops" | "tours" | "experiences";
+  const category = (await params).category as
+    | "workshops"
+    | "tours"
+    | "experiences";
   const activities = await getActivities(category);
   const dict = await getDictionary(lang);
 

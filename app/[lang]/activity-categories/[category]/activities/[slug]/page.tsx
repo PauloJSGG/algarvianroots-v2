@@ -17,7 +17,7 @@ const page = async ({
   const { translations } = activity;
   return (
     <>
-      <div className="w-38 0 flex flex-col items-center rounded-lg bg-gray-50 p-4 shadow-md">
+      <div className="0 flex w-38 flex-col items-center rounded-lg bg-gray-50 p-4 shadow-md">
         <div className="flex w-full flex-col items-center">
           <div className="text-lg font-bold">{translations.name}</div>
           <div className="text-sm">{translations.description}</div>

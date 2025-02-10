@@ -59,13 +59,17 @@ const Carousel = ({
         ))}
       </div>
       <button
-        className="absolute left-0 top-1/2 -translate-y-1/2 transform bg-foreground p-2 text-white"
+        className={clsx(
+          "bg-foreground absolute top-1/2 left-0 -translate-y-1/2 transform cursor-pointer p-2 text-white",
+        )}
         onClick={prevSlide}
       >
         <ChevronLeft />
       </button>
       <button
-        className="absolute right-0 top-1/2 -translate-y-1/2 transform bg-foreground p-2 text-white"
+        className={clsx(
+          "bg-foreground absolute top-1/2 right-0 -translate-y-1/2 transform cursor-pointer p-2 text-white",
+        )}
         onClick={nextSlide}
       >
         <ChevronRight />

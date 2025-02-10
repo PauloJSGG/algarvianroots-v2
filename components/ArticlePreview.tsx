@@ -17,23 +17,18 @@ const ArticlePreview = ({ article }: ArticlePreviewProps) => {
         alt={translations.title}
         fill
         className={clsx(
-          "absolute left-0 top-0 h-full w-full object-cover",
-          "z-0 blur-[px] brightness-50 filter rounded-3xl",
+          "absolute top-0 left-0 h-full w-full object-cover",
+          "z-0 rounded-3xl blur-[px] brightness-50 filter",
           // "transition-transform duration-700 ease-out hover:scale-110",
         )}
         style={{ filter: "brightness(0.5)" }}
       />
       <div className="z-10 flex w-full flex-col text-white">
-        <div
-          className={clsx(
-            "text-sm font-bold sm:text-lg",
-            "line-clamp-1",
-          )}
-        >
+        <div className={clsx("text-sm font-bold sm:text-lg", "line-clamp-1")}>
           {translations.title}
         </div>
         {/* seperator */}
-        <div className="h-0.5 w-full bg-secondary mb-2" />
+        <div className="bg-secondary mb-2 h-0.5 w-full" />
         <div className="line-clamp-2 text-xs sm:text-sm">
           {translations.description}
         </div>

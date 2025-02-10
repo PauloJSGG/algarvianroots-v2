@@ -11,7 +11,7 @@ interface ActivityPreviewProps {
 const Activity = ({ activity }: ActivityPreviewProps) => {
   const { translations } = activity;
   return (
-    <div className="w-38 0 flex flex-col items-center rounded-lg bg-gray-50 p-4 shadow-md">
+    <div className="0 flex w-38 flex-col items-center rounded-lg bg-gray-50 p-4 shadow-md">
       <div className="flex w-full flex-col items-center">
         <div className="text-lg font-bold">{translations.name}</div>
         <div className="text-sm">{translations.description}</div>
@@ -34,7 +34,7 @@ const Activity = ({ activity }: ActivityPreviewProps) => {
             <ActivityInfo icon={Users} text={"test"} tailwindClasses="w-1/2" />
           )}
           {activity.quick_info.transport && (
-            <ActivityInfo icon={Car} text={} tailwindClasses="w-1/2" />
+            <ActivityInfo icon={Car} text={"test"} tailwindClasses="w-1/2" />
           )}
         </section>
       )}
