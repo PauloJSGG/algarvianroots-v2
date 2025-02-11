@@ -17,7 +17,7 @@ import Link from "next/link";
 import Loading from "@/components/Loading";
 import { Suspense } from "react";
 import { Video } from "@/components/Video";
-// import Badge from "@/components/ui/Badge";
+import Badge from "@/components/Badge";
 // import video from "@/public/videos/landing-page/video.mp4";
 
 type Props = {
@@ -89,7 +89,7 @@ export default async function Page({
             {dict.mainpage["about-us"].description}
           </div>
           <Link href="/about-us" className="m-4 flex justify-center">
-            {/* <Badge text={dict.mainpage["about-us"]["see-more"]} /> */}
+            <Badge text={dict.mainpage["about-us"]["see-more"]} />
           </Link>
 
           <Carousel
@@ -107,7 +107,7 @@ export default async function Page({
           <Suspense fallback={<Loading />}>
             <ArticlesPreview articles={articles} />
             <Link href="/articles" className="m-4 flex justify-center">
-              {/* <Badge text={dict.articles["see-more"]} /> */}
+              <Badge text={dict.articles["see-more"]} />
             </Link>
           </Suspense>
         </section>
