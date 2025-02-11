@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import LogoGreen from "@/public/images/layout/logo-green.png";
 import LogoYellow from "@/public/images/layout/logo-yellow.png";
-import LogoWhite from "@/public/images/layout/logo-white.png";
 import { useState } from "react";
 import clsx from "clsx";
 import { useTheme } from "next-themes";
