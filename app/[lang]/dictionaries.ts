@@ -1,3 +1,4 @@
+import { LanguagesType } from "@/types/types";
 import "server-only";
 
 const dictionaries = {
@@ -5,5 +6,5 @@ const dictionaries = {
   pt: () => import("@/dictionaries/pt.json").then((module) => module.default),
 };
 
-export const getDictionary = async (locale: "en" | "pt") =>
+export const getDictionary = async (locale: LanguagesType) =>
   dictionaries[locale]();

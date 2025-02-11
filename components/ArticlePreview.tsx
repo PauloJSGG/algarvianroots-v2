@@ -10,11 +10,11 @@ interface ArticlePreviewProps {
 const ArticlePreview = ({ article }: ArticlePreviewProps) => {
   const { translations } = article;
   return (
-    <div 
-    className={clsx(
-      "relative flex h-full flex-col items-center bg-gray-50 p-4 shadow-md rounded-2xl",
-      "transition-transform duration-700 ease-out hover:scale-102",
-    )}
+    <div
+      className={clsx(
+        "relative flex h-full flex-col items-center rounded-2xl bg-gray-50 p-4 shadow-md",
+        "transition-transform duration-700 ease-out hover:scale-102",
+      )}
     >
       <Image
         src={article.image}
@@ -22,7 +22,7 @@ const ArticlePreview = ({ article }: ArticlePreviewProps) => {
         fill
         className={clsx(
           "h-full w-full object-cover",
-          "z-0 blur-[1px] shadow-md brightness-50 rounded-2xl",
+          "z-0 rounded-2xl shadow-md blur-[1px] brightness-50",
           // "transition-transform duration-700 ease-out hover:scale-110",
         )}
         // style={{ filter: "brightness(0.5)" }}

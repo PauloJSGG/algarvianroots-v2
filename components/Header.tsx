@@ -8,15 +8,14 @@ import LogoYellow from "@/public/images/layout/logo-yellow.png";
 import { useState } from "react";
 import clsx from "clsx";
 import { useTheme } from "next-themes";
-import { usePathname } from 'next/navigation'
-
-
+import { usePathname } from "next/navigation";
+import { LanguagesType } from "@/types/types";
 
 const Header = ({
   lang,
   links,
 }: {
-  lang: "en" | "pt";
+  lang: LanguagesType;
   links: { slug: string; title: string }[];
 }) => {
   const DIFF_LOGO = [`/${lang}/activity-categories`];
@@ -32,7 +31,7 @@ const Header = ({
 
   // get path name with hook
   const pathname = usePathname();
-  console.log('pathname', pathname);
+  console.log("pathname", pathname);
 
   return (
     <>
@@ -63,7 +62,11 @@ const Header = ({
           )}
 
           <Image
-            src={DIFF_LOGO.includes(pathname) ? LogoYellow : LogoGreen}
+            src={
+              DIFF_LOGO.includes(pathname) && menuHidden
+                ? LogoYellow
+                : LogoGreen
+            }
             alt="Algarvian Roots Logo"
             width={180}
             height={38}

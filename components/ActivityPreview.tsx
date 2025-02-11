@@ -13,8 +13,8 @@ const ActivityPreview = ({ activity }: ActivityPreviewProps) => {
     // blog style card
     <div
       className={clsx(
-        "relative flex h-full flex-col items-center bg-gray-50 p-4 shadow-md rounded-2xl",
-      "transition-transform duration-700 ease-out hover:scale-102",
+        "relative flex h-full flex-col items-center rounded-2xl bg-gray-50 p-4 shadow-md",
+        "transition-transform duration-700 ease-out hover:scale-102",
       )}
     >
       <Image
@@ -55,7 +55,7 @@ const ActivitiesPreview = ({
     <div className="flex gap-4">
       {activities.map((activity) => (
         <Link
-          className="w-1/2 h-48 "
+          className="h-48 w-1/2"
           href={`/activity-categories/${category}/activities/${activity.slug}`}
           key={activity.translations.name}
         >

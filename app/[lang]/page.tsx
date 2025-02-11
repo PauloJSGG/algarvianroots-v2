@@ -20,10 +20,11 @@ import { Video } from "@/components/Video";
 import Badge from "@/components/Badge";
 import clsx from "clsx";
 import ChevronWithScroll from "@/components/ChevronWithScroll";
+import { LanguagesType } from "@/types/types";
 // import video from "@/public/videos/landing-page/video.mp4";
 
 type Props = {
-  params: Promise<{ lang: "en" | "pt" }>;
+  params: Promise<{ lang: LanguagesType }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
@@ -40,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({
   params,
 }: {
-  params: Promise<{ lang: "en" | "pt" }>;
+  params: Promise<{ lang: LanguagesType }>;
 }) {
   const lang = (await params).lang;
   const dict = await getDictionary(lang);
@@ -65,7 +66,7 @@ export default async function Page({
         <div
           className={clsx(
             "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform",
-            "text-3xl font-bold text-white ",
+            "text-3xl font-bold text-white",
             "z-30 sm:text-6xl",
             // "shadow-lg",
             "p-4",

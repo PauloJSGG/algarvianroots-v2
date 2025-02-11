@@ -4,8 +4,13 @@ import clsx from "clsx";
 import { getDictionary } from "../dictionaries";
 import { Suspense } from "react";
 import Loading from "@/components/Loading";
+import { LanguagesType } from "@/types/types";
 
-const page = async ({ params }: { params: Promise<{ lang: "en" | "pt" }> }) => {
+const page = async ({
+  params,
+}: {
+  params: Promise<{ lang: LanguagesType }>;
+}) => {
   const lang = (await params).lang;
   const dict = await getDictionary(lang);
   const articles = await getLatestArticles(lang);

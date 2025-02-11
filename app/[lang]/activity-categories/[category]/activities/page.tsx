@@ -2,12 +2,13 @@ import { getDictionary } from "@/app/[lang]/dictionaries";
 import { ActivitiesPreview } from "@/components/ActivityPreview";
 import Loading from "@/components/Loading";
 import { getActivities } from "@/services/firebase/activities";
+import { LanguagesType } from "@/types/types";
 import { Suspense } from "react";
 
 const page = async ({
   params,
 }: {
-  params: Promise<{ lang: "en" | "pt"; category: string }>;
+  params: Promise<{ lang: LanguagesType; category: string }>;
 }) => {
   const lang = (await params).lang;
   const category = (await params).category as

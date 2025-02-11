@@ -5,11 +5,12 @@ import { CustomMDX } from "@/components/CustomMDX";
 import ActivityInfo from "@/components/ActivityInfo";
 import { Clock, Users, Car } from "lucide-react";
 import { Video } from "@/components/Video";
+import { LanguagesType } from "@/types/types";
 
 const page = async ({
   params,
 }: {
-  params: Promise<{ lang: "en" | "pt"; slug: string }>;
+  params: Promise<{ lang: LanguagesType; slug: string }>;
 }) => {
   const lang = (await params).lang;
   const slug = (await params).slug;

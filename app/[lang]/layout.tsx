@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { getDictionary } from "@/app/[lang]/dictionaries";
 import { ThemeProvider } from "next-themes";
+import { LanguagesType } from "@/types/types";
 // import Footer from "@/components/Footer";
 
 // const geistSans = Geist({
@@ -20,7 +21,7 @@ export default async function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: Promise<{ lang: "en" | "pt" }>;
+  params: Promise<{ lang: LanguagesType }>;
 }>) {
   const lang = (await params).lang;
   const dict = await getDictionary(lang);

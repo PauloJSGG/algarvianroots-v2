@@ -4,11 +4,12 @@ import Link from "next/link";
 import River from "@/public/images/activity-categories/river.jpg";
 import Image from "next/image";
 import clsx from "clsx";
+import { LanguagesType } from "@/types/types";
 
 export default async function Page({
   params,
 }: {
-  params: Promise<{ lang: "en" | "pt" }>;
+  params: Promise<{ lang: LanguagesType }>;
 }) {
   const lang = (await params).lang;
   const dict = await getDictionary(lang);
@@ -24,7 +25,9 @@ export default async function Page({
         alt="River"
         fill
       />
-      <div className="text-center text-3xl">{dict.activities.title}</div>
+      <div className="text-background text-center text-3xl">
+        {dict.activities.title}
+      </div>
       <div className="flex w-full flex-wrap justify-center gap-4 sm:flex-nowrap">
         {dict.activities.categories.map((category) => (
           <Link

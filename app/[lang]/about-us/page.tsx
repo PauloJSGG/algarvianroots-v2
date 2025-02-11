@@ -9,8 +9,13 @@ import tile from "@/public/images/about-us/tile.jpg";
 import Carousel from "@/components/Carousel";
 import { getDictionary } from "@/app/[lang]/dictionaries";
 import Image from "next/image";
+import { LanguagesType } from "@/types/types";
 
-const page = async ({ params }: { params: Promise<{ lang: "en" | "pt" }> }) => {
+const page = async ({
+  params,
+}: {
+  params: Promise<{ lang: LanguagesType }>;
+}) => {
   const lang = (await params).lang;
   const dict = await getDictionary(lang);
 
