@@ -24,7 +24,8 @@ export default async function Page({
         alt="River"
         fill
       />
-      <div className="flex h-[75vh] w-full flex-wrap items-center justify-center gap-4 sm:flex-nowrap">
+      <div className="text-center text-3xl">{dict.activities.title}</div>
+      <div className="flex w-full flex-wrap justify-center gap-4 sm:flex-nowrap">
         {dict.activities.categories.map((category) => (
           <Link
             href={`/activity-categories/${category.slug}/activities`}
