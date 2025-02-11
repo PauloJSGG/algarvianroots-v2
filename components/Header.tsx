@@ -4,9 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import LogoGreen from "@/public/images/layout/logo-green.png";
+import LogoYellow from "@/public/images/layout/logo-yellow.png";
+import LogoWhite from "@/public/images/layout/logo-white.png";
 import { useState } from "react";
 import clsx from "clsx";
 import { useTheme } from "next-themes";
+import { usePathname } from 'next/navigation'
+
+
 
 const Header = ({
   lang,
@@ -15,6 +20,7 @@ const Header = ({
   lang: "en" | "pt";
   links: { slug: string; title: string }[];
 }) => {
+  const DIFF_LOGO = [`/${lang}/activity-categories`];
   const [menuHidden, setMenuHidden] = useState(true);
   const { setTheme } = useTheme();
 
@@ -24,6 +30,10 @@ const Header = ({
   //   if (e.target.closest("header")) return;
   //   setMenuHidden(true);
   // };
+
+  // get path name with hook
+  const pathname = usePathname();
+  console.log('pathname', pathname);
 
   return (
     <>
@@ -54,7 +64,7 @@ const Header = ({
           )}
 
           <Image
-            src={LogoGreen}
+            src={DIFF_LOGO.includes(pathname) ? LogoYellow : LogoGreen}
             alt="Algarvian Roots Logo"
             width={180}
             height={38}
