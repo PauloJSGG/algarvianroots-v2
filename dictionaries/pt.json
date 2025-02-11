@@ -104,5 +104,15 @@
         "color": "green"
       }
     ]
+  },
+  "contact": {
+    "title": "Contactos",
+    "description": "Contacte-nos para mais informações sobre as nossas atividades e experiências. Estamos felizes em ajudá-lo a planear a sua visita ao Algarve.",
+    "form": {
+      "name": "Nome",
+      "email": "Email",
+      "message": "Mensagem",
+      "send": "Enviar"
+    }
   }
 }
