@@ -18,6 +18,8 @@ import Loading from "@/components/Loading";
 import { Suspense } from "react";
 import { Video } from "@/components/Video";
 import Badge from "@/components/Badge";
+import clsx from "clsx";
+import ChevronWithScroll from "@/components/ChevronWithScroll";
 // import video from "@/public/videos/landing-page/video.mp4";
 
 type Props = {
@@ -47,17 +49,37 @@ export default async function Page({
 
   return (
     <>
-      <Video
-        desktop={{
-          src: "/videos/landing-page/video.mp4",
-          poster: "/videos/landing-page/poster-desktop.jpg",
-        }}
-        mobile={{
-          src: "/videos/landing-page/video-mobile.mp4",
-          poster: "/videos/landing-page/poster-mobile.jpg",
-        }}
-        className="fixed top-0 -z-10 h-full w-full"
-      />
+      <section className="w-full">
+        <Video
+          desktop={{
+            src: "/videos/landing-page/video.mp4",
+            poster: "/videos/landing-page/poster-desktop.jpg",
+          }}
+          mobile={{
+            src: "/videos/landing-page/video-mobile.mp4",
+            poster: "/videos/landing-page/poster-mobile.jpg",
+          }}
+          className="fixed top-0 -z-10 h-full w-full brightness-75"
+        />
+        {/* centered label */}
+        <div
+          className={clsx(
+            "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform",
+            "text-3xl font-bold text-white ",
+            "z-30 sm:text-6xl",
+            // "shadow-lg",
+            "p-4",
+            "rounded-2xl",
+          )}
+        >
+          {dict.mainpage.title}
+          <div className="text-sm font-semibold text-white sm:text-2xl">
+            {dict.mainpage.subtitle}
+          </div>
+          <ChevronWithScroll />
+        </div>
+      </section>
+
       <div className="h-[100vh] bg-transparent"></div>
       <div className="flex w-full flex-col items-center gap-4 bg-white">
         <Image src={seperatorTop} alt="seperator-top" className="max-h-64" />

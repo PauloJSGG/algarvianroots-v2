@@ -4,7 +4,14 @@ import withBundleAnalyzer from "@next/bundle-analyzer";
 const nextConfig: NextConfig = {
   // consfigure hostname firebasestorage.googleapis.com
   images: {
-    domains: ["firebasestorage.googleapis.com", "i.natgeofe.com"],
+    remotePatterns: [
+      {
+        hostname: "firebasestorage.googleapis.com",
+      },
+      {
+        hostname: "i.natgeofe.com",
+      },
+    ],
   },
   webpack(config) {
     // add SVG as asset

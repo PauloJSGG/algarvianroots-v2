@@ -11,19 +11,23 @@ const ActivityPreview = ({ activity }: ActivityPreviewProps) => {
   const { translations } = activity;
   return (
     // blog style card
-    <div className="0 relative flex h-full flex-col items-center bg-gray-50 p-4 shadow-md">
+    <div
+      className={clsx(
+        "relative flex h-full flex-col items-center bg-gray-50 p-4 shadow-md rounded-2xl",
+      "transition-transform duration-700 ease-out hover:scale-102",
+      )}
+    >
       <Image
         src={activity.main_image}
         alt={translations.name}
         fill
         className={clsx(
-          "absolute top-0 left-0 h-full w-full object-cover",
-          "z-0 rounded-3xl blur-[px] brightness-50 filter",
+          "h-full w-full object-cover",
+          "z-0 rounded-2xl shadow-md blur-[1px] brightness-50",
           // "transition-transform duration-700 ease-out hover:scale-110",
         )}
-        style={{ filter: "brightness(0.5)" }}
       />
-      <div className="z-50 flex w-full flex-col text-white">
+      <div className="z-10 flex w-full flex-col text-white">
         <div
           className={clsx(
             "decoration-secondary h-6 text-sm font-bold underline decoration-[2px] sm:h-8 sm:text-lg sm:decoration-[2px]",
@@ -32,7 +36,7 @@ const ActivityPreview = ({ activity }: ActivityPreviewProps) => {
         >
           {translations.name}
         </div>
-        <div className="line-clamp-3 text-xs sm:text-sm">
+        <div className="line-clamp-6 text-xs sm:text-sm">
           {translations.description}
         </div>
       </div>
@@ -51,6 +55,7 @@ const ActivitiesPreview = ({
     <div className="flex gap-4">
       {activities.map((activity) => (
         <Link
+          className="w-1/2 h-48 "
           href={`/activity-categories/${category}/activities/${activity.slug}`}
           key={activity.translations.name}
         >

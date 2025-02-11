@@ -37,6 +37,7 @@
       "description": "Algarvianroots is a company that offers ecotourism experiences in the Algarve. Discover the natural and cultural heritage of the Algarve with us."
     },
     "title": "Algarvianroots",
+    "subtitle": "Ecotourism in the Algarve",
     "description": "Este é um dicionário de exemplo.",
     "about-us": {
       "title": "About us",
@@ -80,19 +81,19 @@
     "title": "Our activities",
     "categories-key-values": {
       "workshops": "Workshops",
-      "tours": "Tours",
-      "experiences": "Experiences"
+      "experiences": "Experiences",
+      "tours": "Tours"
     },
     "categories": [
       {
         "slug": "experiences",
         "title": "Experiences",
-        "color": "yellow"
+        "color": "green"
       },
       {
         "slug": "tours",
         "title": "Tours",
-        "color": "green"
+        "color": "yellow"
       },
       {
         "slug": "workshops",
