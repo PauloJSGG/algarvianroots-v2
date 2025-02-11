@@ -11,9 +11,9 @@ const page = async ({
   const article = await getArticle(slug, lang);
 
   return (
-    <div>
+    <section className="container">
       <Article key={article.id} article={article} />
-    </div>
+    </section>
   );
 };
 
