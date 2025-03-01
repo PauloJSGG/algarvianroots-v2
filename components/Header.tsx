@@ -101,15 +101,19 @@ const Header = ({
           <button
             className="bg-rootsgreen h-2 w-2 cursor-pointer"
             onClick={() => setTheme("green")}
-          ></button>
+          />
           <button
             className="bg-rootsblue h-2 w-2 cursor-pointer"
             onClick={() => setTheme("blue")}
-          ></button>
+          />
           <button
             className="bg-rootsyellow h-2 w-2 cursor-pointer"
             onClick={() => setTheme("yellow")}
-          ></button>
+          />
+          <button
+            className="bg-rootsbrown h-2 w-2 cursor-pointer"
+            onClick={() => setTheme("brown")}
+          />
         </div>
       </div>
     </>

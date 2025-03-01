@@ -4,6 +4,7 @@
   --color-rootsgreen: oklch(48.99% 0.1078 156.33);
   --color-rootsyellow: oklch(76.23% 0.1487 88.04);
   --color-rootsblue: oklch(52.13% 0.1129 246.12);
+  --color-rootsbrown: oklch(41.9% 0.0787 85.67);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -28,6 +29,11 @@
   --background: #ffffff;
   --foreground: var(--color-rootsyellow);
   --secondary: var(--color-rootsblue);
+}
+[data-theme="brown"] {
+  --background: #ffffff;
+  --foreground: var(--color-rootsbrown);
+  --secondary: var(--color-rootsgreen);
 }
 
 /* :root {

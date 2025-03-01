@@ -4,7 +4,7 @@ import Link from "next/link";
 import River from "@/public/images/activity-categories/river.jpg";
 import Image from "next/image";
 import clsx from "clsx";
-import { LanguagesType } from "@/types/types";
+import { LanguagesType, RockPath } from "@/types/types";
 
 export default async function Page({
   params,
@@ -36,7 +36,7 @@ export default async function Page({
           >
             <Rock
               key={category.title}
-              color={category.color as "yellow" | "blue" | "green"}
+              path={category.path as RockPath}
               text={category.title}
             />
           </Link>
