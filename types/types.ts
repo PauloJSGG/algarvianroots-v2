@@ -1,3 +1,13 @@
+export type RockPath =
+  | "yellow-1"
+  | "blue-1"
+  | "green-1"
+  | "brown-1"
+  | "yellow-2"
+  | "blue-2"
+  | "green-2"
+  | "brown-2";
+
 export interface IArticle {
   id: string;
   image: string;

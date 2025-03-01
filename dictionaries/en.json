@@ -88,17 +88,22 @@
       {
         "slug": "experiences",
         "title": "Experiences",
-        "color": "green"
+        "path": "green-1"
       },
       {
         "slug": "tours",
         "title": "Tours",
-        "color": "yellow"
+        "path": "yellow-1"
       },
       {
         "slug": "workshops",
         "title": "Workshops",
-        "color": "blue"
+        "path": "blue-1"
+      },
+      {
+        "slug": "test",
+        "title": "Test",
+        "path": "brown-1"
       }
     ]
   },

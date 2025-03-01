@@ -20,7 +20,7 @@ import { Video } from "@/components/Video";
 import Badge from "@/components/Badge";
 import clsx from "clsx";
 import ChevronWithScroll from "@/components/ChevronWithScroll";
-import { LanguagesType } from "@/types/types";
+import { LanguagesType, RockPath } from "@/types/types";
 // import video from "@/public/videos/landing-page/video.mp4";
 
 type Props = {
@@ -96,7 +96,7 @@ export default async function Page({
               >
                 <Rock
                   key={category.title}
-                  color={category.color as "yellow" | "blue" | "green"}
+                  path={category.path as RockPath}
                   text={category.title}
                 />
               </Link>

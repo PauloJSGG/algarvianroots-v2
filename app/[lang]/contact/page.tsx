@@ -15,6 +15,6 @@ const page = async ({
       <div className="text-center text-3xl">{dict.articles.title}</div>
     </section>
   );
-}
+};
 
 export default page;
