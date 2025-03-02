@@ -75,15 +75,29 @@
     "activity-info": {
       "duration": "Duration",
       "transport": "Transport",
+      "snack": "Snacks",
+      "group": "2 - 8 people",
       "price": "Price",
       "location": "Location"
+    },
+    "activity-detailed-info": {
+      "info": "Information",
+      "itinerary": "Itinerary",
+      "what-it-includes": "What it includes",
+      "points-of-interest": "Points of interest",
+      "what-to-bring": "What to bring"
     },
     "title": "Our activities",
     "book-here": "Book here",
     "categories-key-values": {
       "workshops": "Workshops",
+      "tours": "Tours",
       "experiences": "Experiences",
-      "tours": "Tours"
+      "hikes": "Hikes",
+      "birdwatching": "Birdwatching",
+      "accomdation": "Accomodation",
+      "transportation": "Transportation",
+      "tailor-made": "Tailor made"
     },
     "category-groups": [
       [

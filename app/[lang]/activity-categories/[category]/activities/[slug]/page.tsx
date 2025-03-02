@@ -3,12 +3,13 @@ import { getActivity } from "@/services/firebase/activities";
 import Image from "next/image";
 import { CustomMDX } from "@/components/CustomMDX";
 import ActivityInfo from "@/components/ActivityInfo";
-import { Clock, Users, Car } from "lucide-react";
+import { Clock, Users, Car, Apple, MapPin } from "lucide-react";
 import { Video } from "@/components/Video";
 import { LanguagesType } from "@/types/types";
 import Pluralo from "@/components/Pluralo";
 import ChevronWithScroll from "@/components/ChevronWithScroll";
 import clsx from "clsx";
+import Accordion from "@/components/Accordion";
 
 const page = async ({
   params,
@@ -53,7 +54,9 @@ const page = async ({
       <div className="bg-background/75 flex w-full flex-col items-center gap-4">
         <section className="container">
           <div className="flex w-full flex-col items-center">
-            <div className="text-lg font-bold">{translations.name}</div>
+            <div className="text-center text-3xl font-bold">
+              {translations.name}
+            </div>
             <div className="text-sm">{translations.description}</div>
           </div>
           <div className="flex w-full flex-wrap items-end justify-center gap-4">
@@ -74,34 +77,68 @@ const page = async ({
         </section>
 
         {activity.quick_info && (
-          <section className="flex w-1/2 flex-wrap justify-center gap-4">
+          <section className="container flex w-full flex-wrap justify-center gap-1">
             <ActivityInfo
               icon={Clock}
               text={activity.quick_info.duration}
-              tailwindClasses="w-1/2 text-black"
+              tailwindClasses="w-1/2 text-xs sm:w-1/4 sm:text-sm"
             />
             {activity.quick_info.group && (
               <ActivityInfo
                 icon={Users}
                 text={"test"}
-                tailwindClasses="w-1/2"
+                tailwindClasses="w-1/2 text-xs sm:w-1/4 sm:text-sm"
               />
             )}
             {activity.quick_info.transport && (
               <ActivityInfo
                 icon={Car}
                 text={dict.activities["activity-info"].transport}
-                tailwindClasses="w-1/2"
+                tailwindClasses="w-1/2 text-xs sm:w-1/4 sm:text-sm"
+              />
+            )}
+            {activity.quick_info.group && (
+              <ActivityInfo
+                icon={Users}
+                text={dict.activities["activity-info"].group}
+                tailwindClasses="w-1/2 text-xs sm:w-1/4 sm:text-sm"
+              />
+            )}
+            {activity.quick_info.snack && (
+              <ActivityInfo
+                icon={Apple}
+                text={dict.activities["activity-info"].snack}
+                tailwindClasses="w-1/2 text-xs sm:w-1/4 sm:text-sm"
+              />
+            )}
+            {activity.quick_info.meeting_point && (
+              <ActivityInfo
+                icon={MapPin}
+                text={activity.quick_info.meeting_point.name}
+                // subText={activity.quick_info.meeting_point.link}
+                tailwindClasses="w-1/2 text-xs sm:w-1/4"
               />
             )}
           </section>
         )}
 
-        <CustomMDX source={translations.info} />
-        <CustomMDX source={translations.itinerary} />
-        <CustomMDX source={translations.what_it_includes} />
-        <CustomMDX source={translations.points_of_interest} />
-        <CustomMDX source={translations.what_to_bring} />
+        <div className="container">
+          <Accordion title={dict.activities["activity-detailed-info"].info}>
+            <CustomMDX source={translations.info} />
+          </Accordion>
+          <Accordion title={dict.activities["activity-detailed-info"].itinerary}>
+            <CustomMDX source={translations.itinerary} />
+          </Accordion>
+          <Accordion title={dict.activities["activity-detailed-info"]["what-it-includes"]}>
+            <CustomMDX source={translations.what_it_includes} />
+          </Accordion>
+          <Accordion title={dict.activities["activity-detailed-info"]["points-of-interest"]}>
+            <CustomMDX source={translations.points_of_interest} />
+          </Accordion>
+          <Accordion title={dict.activities["activity-detailed-info"]["what-to-bring"]}>
+            <CustomMDX source={translations.what_to_bring} />
+          </Accordion>
+        </div>
       </div>
     </>
   );

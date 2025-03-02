@@ -64,6 +64,10 @@ const getActivity = async (
       guide: activity.data().guide as boolean,
       snack: activity.data().snack as boolean,
       transport: activity.data().transport as boolean,
+      meeting_point: activity.data().meeting_point as {
+        name: string;
+        link: string;
+      },
       hike: {
         active: activity.data().hike.active as boolean,
         difficulty: activity.data().hike.difficulty as string,

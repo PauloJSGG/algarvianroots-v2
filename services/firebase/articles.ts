@@ -70,7 +70,7 @@ const getArticle: (
 const getLatestArticles: (
   lang: LanguagesType,
   limitNumber?: number,
-) => Promise<IArticle[]> = async (lang = "en", limitNumber = 3) => {
+) => Promise<IArticle[]> = async (lang = "en", limitNumber = 2) => {
   const collectionRef = collection(db, "articles");
 
   const latestDocQuery = query(

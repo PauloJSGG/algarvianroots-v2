@@ -77,16 +77,30 @@
     "activity-info": {
       "duration": "Duração",
       "transport": "Transporte",
+      "group": "2 - 8 pessoas",
+      "snack": "Snacks",
       "price": "Preço",
       "location": "Localização",
       "language": "Idioma",
       "group-size": "Tamanho do grupo",
       "difficulty": "Dificuldade"
     },
+    "activity-detailed-info": {
+      "info": "Informações",
+      "itinerary": "Itinerário",
+      "what-it-includes": "O que inclui",
+      "points-of-interest": "Pontos de interesse",
+      "what-to-bring": "O que trazer"
+    },
     "categories-key-values": {
       "workshops": "Workshops",
       "tours": "Tours",
-      "experiences": "Experiências"
+      "experiences": "Experiências",
+      "hikes": "Caminhadas",
+      "birdwatching": "Observação de aves",
+      "accomdation": "Alojamento",
+      "transportation": "Transporte",
+      "tailor-made": "Feito à medida"
     },
     "category-groups": [
       [

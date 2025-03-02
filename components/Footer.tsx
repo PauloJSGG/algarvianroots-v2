@@ -5,12 +5,14 @@ const Footer = () => {
   return (
     <footer>
       <Image
-        className="max-h-64 bg-transparent"
+        className="max-h-64 bg-transparent absolute z-0"
         src={footer}
         alt="Tiles footer"
       />
-      {/* <footer className="flex w-full bg-transparent">
-    </footer> */}
+      <section className="z-50 relative">logo</section>
+      <section className="z-50 relative">address</section>
+      <section className="z-50 relative">socials</section>
+      <section className="z-50 relative">terms</section>
     </footer>
   );
 };

@@ -32,6 +32,10 @@ export interface IActivity {
     guide: boolean;
     snack: boolean;
     transport: boolean;
+    meeting_point: {
+      name: string;
+      link: string;
+    }
     hike: {
       active: boolean;
       difficulty?: string;

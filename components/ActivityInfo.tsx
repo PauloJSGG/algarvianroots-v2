@@ -17,12 +17,10 @@ const ActivityInfo = ({
   tailwindClasses = "",
 }: ActivityInfoProps) => {
   return (
-    <div className={`flex items-center ${tailwindClasses}`}>
-      <div className="w-1/3">{createElement(icon)}</div>
-      <div className="flex w-2/3 flex-col">
-        <div className="">{text}</div>
-        <div className="">{subText}</div>
-      </div>
+    <div className={`flex items-center px-4 gap-2 bg-foreground text-background rounded-3xl py-1 ${tailwindClasses}`}>
+      {createElement(icon)}
+      <div className="">{text}</div>
+      {subText && <div className="">{subText}</div>}
     </div>
   );
 };
