@@ -33,7 +33,7 @@
       "terms": "Termos e Condições",
       "privacy": "Política de Privacidade"
     },
-    "whatsapp" : {
+    "whatsapp": {
       "title": "Contacte-nos via WhatsApp",
       "botMessage": "Olá! Como posso ajudar?",
       "placeholder": "Escreva a sua mensagem",
@@ -100,7 +100,13 @@
       "itinerary": "Itinerário",
       "what-it-includes": "O que inclui",
       "points-of-interest": "Pontos de interesse",
-      "what-to-bring": "O que trazer"
+      "what-to-bring": "O que trazer",
+      "reservation-info": "Informações de reserva",
+      "cancelation-policy": "Política de cancelamento",
+      "workshops": {
+        "reservation-info": "A atividade deve ser reservada até 72h de antecedência, para que o artista garanta a disponibilidade para a realização do workshop. Alterações de datas são aceites até 48h, mas a nova data para a realização da experiência tem de ter pelo menos 72h de antecedência, a não ser que existam vagas para uma das experiências já confirmadas.",
+        "cancelation-policy": "As reservas podem ser canceladas devido a más condições climatéricas ou caso o artista não garanta disponibilidade. A reserva em causa pode ser alterada ou será feita devolução do valor.Cancelamentos são aceites até 48h antes da realização da experiência, posteriormente o valor da reserva não será devolvido. Caso a experiência não atinja o número mínimo de clientes 24h antes da realização, a reserva será cancelada automaticamenteConsulte mais informações em “Termos e condições” no fim desta página."
+      }
     },
     "categories-key-values": {
       "workshops": "Workshops",

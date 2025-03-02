@@ -205,6 +205,34 @@ const page = async ({
           >
             <CustomMDX source={translations.what_to_bring} />
           </Accordion>
+          {/* reservation info */}
+          <Accordion
+            title={
+              dict.activities["activity-detailed-info"]["reservation-info"]
+            }
+          >
+            <CustomMDX
+              source={
+                dict.activities["activity-detailed-info"].workshops[
+                  "reservation-info"
+                ]
+              }
+            />
+          </Accordion>
+          {/* cancelation policy */}
+          <Accordion
+            title={
+              dict.activities["activity-detailed-info"]["cancelation-policy"]
+            }
+          >
+            <CustomMDX
+              source={
+                dict.activities["activity-detailed-info"].workshops[
+                  "cancelation-policy"
+                ]
+              }
+            />
+          </Accordion>
         </div>
 
         {/* Other */}

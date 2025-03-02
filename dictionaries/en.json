@@ -33,7 +33,7 @@
       "terms": "Terms and conditions",
       "privacy": "Privacy policy"
     },
-    "whatsapp" : {
+    "whatsapp": {
       "title": "Contact us via WhatsApp",
       "botMessage": "Hello! How can I help?",
       "placeholder": "Write your message",
@@ -95,7 +95,13 @@
       "itinerary": "Itinerary",
       "what-it-includes": "What it includes",
       "points-of-interest": "Points of interest",
-      "what-to-bring": "What to bring"
+      "what-to-bring": "What to bring",
+      "reservation-info": "Reservation information",
+      "cancelation-policy": "Cancelation policy",
+      "workshops": {
+        "reservation-info": "The activity must be booked at least 72 hours in advance, in order to confirm the artist availability to guarantee the workshop. Changes are accepted up to 48 hours, but the new date will have to be changed to a deadline with a minimum of 72 hours in advance, unless there is space in one of the experiences already confirmed.",
+        "cancelation-policy": "The booking can be cancelled if the weather conditions don’t permit the experience execution or if the local artist doesn’t guarantee presence. This booking can be changed or refunded. Cancellations are accepted up to 48 hours before the experience. Cancellations after 48h are not refunded. The booking will be automatically cancelled if the reserve does not have a minimum number of clients 24 hours before the experience beginning. Check more details in “Terms and conditions” in the website footer."
+      }
     },
     "title": "Our activities",
     "book-here": "Book here",
