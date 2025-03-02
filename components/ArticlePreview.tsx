@@ -47,7 +47,7 @@ const ArticlesPreview = ({ articles }: { articles: IArticle[] }) => {
   }
 
   return (
-    <div className="flex gap-4 flex-wrap justify-evenly">
+    <div className="flex flex-wrap justify-evenly gap-4">
       {articles.map((article) => (
         <Link
           href={`articles/${article.slug}`}

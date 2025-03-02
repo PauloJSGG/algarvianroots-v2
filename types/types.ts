@@ -34,14 +34,14 @@ export interface IActivity {
       active: boolean;
       min: number;
       max: number;
-    }
+    };
     guide: boolean;
     snack: boolean;
     transport: boolean;
     meeting_point: {
       name: string;
       link: string;
-    }
+    };
     hike: {
       active: boolean;
       difficulty?: string;

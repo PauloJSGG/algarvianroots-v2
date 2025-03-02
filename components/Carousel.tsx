@@ -41,7 +41,7 @@ const Carousel = ({
 
   return (
     <div className="relative mx-auto w-full max-w-3xl">
-      <div className="relative h-96 sm:h-64 overflow-hidden">
+      <div className="relative h-96 overflow-hidden sm:h-64">
         {components.map((component: ReactNode, index: number) => (
           <div
             key={index}
@@ -62,7 +62,7 @@ const Carousel = ({
       <button
         className={clsx(
           "bg-foreground absolute top-1/2 left-0 -translate-y-1/2 transform cursor-pointer p-2 text-white",
-          "rounded-3xl hover:brightness-125"
+          "rounded-3xl hover:brightness-125",
         )}
         onClick={prevSlide}
       >
@@ -71,7 +71,7 @@ const Carousel = ({
       <button
         className={clsx(
           "bg-foreground absolute top-1/2 right-0 -translate-y-1/2 transform cursor-pointer p-2 text-white",
-          "rounded-3xl hover:brightness-125"
+          "rounded-3xl hover:brightness-125",
         )}
         onClick={nextSlide}
       >

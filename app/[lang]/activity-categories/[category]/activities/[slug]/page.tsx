@@ -3,7 +3,16 @@ import { getActivity } from "@/services/firebase/activities";
 import Image from "next/image";
 import { CustomMDX } from "@/components/CustomMDX";
 import ActivityInfo from "@/components/ActivityInfo";
-import { Clock, Users, Car, Apple, MapPin } from "lucide-react";
+import {
+  Clock,
+  Users,
+  Car,
+  Apple,
+  MapPin,
+  Dumbbell,
+  Ruler,
+  MountainSnow,
+} from "lucide-react";
 import { Video } from "@/components/Video";
 import { LanguagesType } from "@/types/types";
 import Pluralo from "@/components/Pluralo";
@@ -16,6 +25,7 @@ import seperatorGreen from "@/public/images/activity/seperator-green.png";
 import seperatorBrown from "@/public/images/activity/seperator-brown.png";
 import seperatorYellow from "@/public/images/activity/seperator-yellow.png";
 import ThemeChanger from "@/components/ThemeChanger";
+import Elfsight from "@/components/Elfsight";
 
 const seperatorRender = (color: string, rotate: boolean = false) => {
   switch (color) {
@@ -67,6 +77,7 @@ const page = async ({
 }: {
   params: Promise<{ lang: LanguagesType; slug: string }>;
 }) => {
+  const prod = process.env.NODE_ENV === "production";
   const lang = (await params).lang;
   const slug = (await params).slug;
   const dict = await getDictionary(lang);
@@ -159,6 +170,39 @@ const page = async ({
                 tailwindClasses="w-1/2 text-xs sm:w-1/4 sm:text-sm"
               />
             )}
+            {activity.quick_info.hike && (
+              <>
+                <ActivityInfo
+                  icon={Dumbbell}
+                  text={
+                    dict.activities["activity-info"].hike[
+                      (activity.quick_info.hike.difficulty as
+                        | "easy"
+                        | "medium"
+                        | "hard") || "easy"
+                    ]
+                  }
+                  // subText={`${activity.quick_info.hike.distance}km - ${activity.quick_info.hike.duration} ${dict.activities["activity-info"].hours}`}
+                  tailwindClasses="w-1/2 text-xs sm:w-1/4"
+                />
+                <ActivityInfo
+                  icon={Ruler}
+                  text={`${activity.quick_info.hike.distance}km`}
+                  // subText={dict.activities["activity-info"].distance}
+                  tailwindClasses="w-1/2 text-xs sm:w-1/4"
+                />
+                {/* duration */}
+                {activity.quick_info.hike.duration !==
+                  activity.quick_info.duration && (
+                  <ActivityInfo
+                    icon={MountainSnow}
+                    text={`${activity.quick_info.hike.duration}`}
+                    subText={dict.activities["activity-info"].hours}
+                    tailwindClasses="w-1/2 text-xs sm:w-1/4"
+                  />
+                )}
+              </>
+            )}
             {activity.quick_info.snack && (
               <ActivityInfo
                 icon={Apple}
@@ -238,6 +282,11 @@ const page = async ({
         {/* Other */}
         {seperatorRender(activity.color, false)}
       </div>
+      {prod && (
+        <section className="container mt-8">
+          <Elfsight />
+        </section>
+      )}
     </>
   );
 };

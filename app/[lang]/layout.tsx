@@ -41,7 +41,7 @@ export default async function RootLayout({
             rights={dict.layout.footer.rights}
             lang={lang}
           />
-          <WhatsAppWidget 
+          <WhatsAppWidget
             title={"Francisco"}
             botMessage={dict.layout.whatsapp.botMessage}
             placeholder={dict.layout.whatsapp.placeholder}

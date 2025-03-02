@@ -85,7 +85,8 @@ const Header = ({
 
           <Image
             src={
-              (DIFF_LOGO.includes(pathname) && menuHidden) || pathname.includes("activities") && !hasScrolled
+              (DIFF_LOGO.includes(pathname) && menuHidden) ||
+              (pathname.includes("activities/") && !hasScrolled)
                 ? LogoYellow
                 : !hasScrolled && menuHidden && pathname === `/${lang}`
                   ? LogoWhite

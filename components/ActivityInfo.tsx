@@ -17,7 +17,9 @@ const ActivityInfo = ({
   tailwindClasses = "",
 }: ActivityInfoProps) => {
   return (
-    <div className={`flex items-center px-4 gap-2 bg-foreground text-background rounded-3xl py-1 ${tailwindClasses}`}>
+    <div
+      className={`bg-foreground text-background flex items-center gap-2 rounded-3xl px-4 py-1 ${tailwindClasses}`}
+    >
       {createElement(icon)}
       <div className="">{text}</div>
       {subText && <div className="">{subText}</div>}
