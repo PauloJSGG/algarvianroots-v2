@@ -83,7 +83,7 @@ const Header = ({
 
           <Image
             src={
-              DIFF_LOGO.includes(pathname) && menuHidden
+              (DIFF_LOGO.includes(pathname) && menuHidden ) || (!hasScrolled && menuHidden)
                 ? LogoYellow
                 : LogoGreen
             }
