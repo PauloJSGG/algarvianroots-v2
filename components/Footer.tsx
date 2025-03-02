@@ -11,6 +11,7 @@ import { LanguagesType } from "@/types/types";
 import Pt2020 from "@/public/images/footer/2020.png";
 import Rnt from "@/public/images/footer/rnt.png";
 import VisitPortugal from "@/public/images/footer/visitportugal.png";
+import Algarve from "@/public/images/footer/algarve.png";
 
 const Footer = ({
   lang,
@@ -38,15 +39,20 @@ const Footer = ({
         {/* left */}
         <section className="w-1/2">
           <Image src={Logo} alt="Logo" className="z-30 w-48 p-2 px-8" />
-          <Image
-            src={Reclamacoes}
-            alt="Reclamacoes"
-            className="z-30 w-48 p-2 px-8"
-          />
-          <div className="z-30 w-48 p-2 px-8 text-left text-xs text-white">
+          <a
+            href="https://www.livroreclamacoes.pt/Inicio/CentrosArbitragem"
+            target="_blank"
+          >
+            <Image
+              src={Reclamacoes}
+              alt="Reclamacoes"
+              className="z-30 w-48 p-2 px-8"
+            />
+          </a>
+          <div className="z-30 w-82 p-2 px-8 text-left text-xs text-white">
             {rights}
           </div>
-          <div className="z-30 w-48 p-2 px-8 text-left text-xs text-white">
+          <div className="z-30 w-82 p-2 px-8 text-left text-xs text-white">
             Silêncio místico unipessoal, lda NIPC 516015877 Casas da ribeira
             n°107, 8300-023 Silves Licence RNAAT n°245/2022
           </div>
@@ -63,7 +69,7 @@ const Footer = ({
             </a>
             <a
               href="https://www.tripadvisor.com/Attraction_Review-g189122-d23985619-Reviews-AlgarvianRoots-Silves_Faro_District_Algarve.html"
-              target="_blank" 
+              target="_blank"
             >
               <Image
                 src={TripadvisorIcon}
@@ -101,7 +107,7 @@ const Footer = ({
               {privacy}
             </a>
           </div>
-          <div className="z-30 flex w-full flex-wrap items-center justify-end gap-2 px-8 space-x-2 p-2">
+          <div className="z-30 flex w-full flex-wrap items-center justify-end gap-2 space-x-2 p-2 px-8">
             <a
               href="https://rnt.turismodeportugal.pt/rnt/Pesquisa_AAT.aspx?FiltroVisivel=True"
               target="_blank"
@@ -109,10 +115,19 @@ const Footer = ({
               <Image src={Rnt} className="w-24" alt="Rnt" />
             </a>
             <a
-              href="https://visitalgarve.pt/equipamento/5671/algarvianroots"
+              href={`https://www.visitportugal.com/${
+                lang === "pt" ? "pt-pt" : "en"
+              }/content/algarvianroots`}
               target="_blank"
             >
               <Image src={VisitPortugal} className="w-24" alt="VisitPortugal" />
+            </a>
+            <a
+              href="https://visitalgarve.pt/equipamento/5671/algarvianroots"
+              target="_blank"
+              className="text-white"
+            >
+              <Image src={Algarve} alt="Algarve" className="w-24" />
             </a>
           </div>
           <div className="z-30 flex w-48 items-center justify-end space-x-2 p-2 px-8 sm:w-80">
