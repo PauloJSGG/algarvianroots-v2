@@ -120,6 +120,7 @@ const getActivities = async (category: string): Promise<IActivity[]> => {
     return {
       id: doc.id,
       slug: doc.data().slug as string,
+      color: doc.data().color as "green" | "blue" | "yellow" | "brown",
       main_image: (await getDownloadURL(
         ref(st, doc.data().main_image),
       )) as string,
