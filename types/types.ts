@@ -24,12 +24,17 @@ export interface IActivity {
   id: string;
   slug: string;
   pluralo_id?: string;
+  color: "green" | "blue" | "yellow" | "brown";
   main_image: string;
   images?: string[];
   video?: string;
   quick_info?: {
     duration: number;
-    group: boolean;
+    group: {
+      active: boolean;
+      min: number;
+      max: number;
+    }
     guide: boolean;
     snack: boolean;
     transport: boolean;

@@ -11,6 +11,56 @@ import ChevronWithScroll from "@/components/ChevronWithScroll";
 import clsx from "clsx";
 import Accordion from "@/components/Accordion";
 import Carousel from "@/components/Carousel";
+import seperatorBlue from "@/public/images/activity/seperator-blue.png";
+import seperatorGreen from "@/public/images/activity/seperator-green.png";
+import seperatorBrown from "@/public/images/activity/seperator-brown.png";
+import seperatorYellow from "@/public/images/activity/seperator-yellow.png";
+import ThemeChanger from "@/components/ThemeChanger";
+
+const seperatorRender = (color: string, rotate: boolean = false) => {
+  switch (color) {
+    case "blue":
+      return (
+        <Image
+          src={seperatorBlue}
+          alt="seperator"
+          className={clsx("max-h-64", { "rotate-180": rotate })}
+        />
+      );
+    case "green":
+      return (
+        <Image
+          src={seperatorGreen}
+          alt="seperator"
+          className={clsx("max-h-64", { "rotate-180": rotate })}
+        />
+      );
+    case "brown":
+      return (
+        <Image
+          src={seperatorBrown}
+          alt="seperator"
+          className={clsx("max-h-64", { "rotate-180": rotate })}
+        />
+      );
+    case "yellow":
+      return (
+        <Image
+          src={seperatorYellow}
+          alt="seperator"
+          className={clsx("max-h-64", { "rotate-180": rotate })}
+        />
+      );
+    default:
+      return (
+        <Image
+          src={seperatorGreen}
+          alt="seperator"
+          className={clsx("max-h-64", { "rotate-180": rotate })}
+        />
+      );
+  }
+};
 
 const page = async ({
   params,
@@ -24,6 +74,7 @@ const page = async ({
   const { translations } = activity;
   return (
     <>
+      <ThemeChanger color={activity.color} key={activity.color} />
       <section className="w-full">
         <Video
           desktop={{
@@ -53,6 +104,7 @@ const page = async ({
       </section>
       <div className="h-[100vh] bg-transparent"></div>
       <div className="bg-background/75 flex w-full flex-col items-center gap-4">
+        {seperatorRender(activity.color, true)}
         <section className="container">
           <div className="flex w-full flex-col items-center">
             <div className="text-center text-3xl font-bold">
@@ -103,7 +155,7 @@ const page = async ({
             {activity.quick_info.group && (
               <ActivityInfo
                 icon={Users}
-                text={dict.activities["activity-info"].group}
+                text={`${activity.quick_info.group.min} - ${activity.quick_info.group.max} ${dict.activities["activity-info"].group}`}
                 tailwindClasses="w-1/2 text-xs sm:w-1/4 sm:text-sm"
               />
             )}
@@ -154,6 +206,9 @@ const page = async ({
             <CustomMDX source={translations.what_to_bring} />
           </Accordion>
         </div>
+
+        {/* Other */}
+        {seperatorRender(activity.color, false)}
       </div>
     </>
   );

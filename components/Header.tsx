@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import LogoGreen from "@/public/images/layout/logo-green.png";
 import LogoYellow from "@/public/images/layout/logo-yellow.png";
+import LogoWhite from "@/public/images/layout/logo-white.png";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { useTheme } from "next-themes";
@@ -18,7 +19,8 @@ const Header = ({
   lang: LanguagesType;
   links: { slug: string; title: string }[];
 }) => {
-  const DIFF_LOGO = [`/${lang}/activity-categories`, 
+  const DIFF_LOGO = [
+    `/${lang}/activity-categories`,
     `/${lang}/activity-categories/[slug]`,
   ];
   const [menuHidden, setMenuHidden] = useState(true);
@@ -26,7 +28,6 @@ const Header = ({
   const { setTheme } = useTheme();
 
   const pathname = usePathname();
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,11 +40,11 @@ const Header = ({
     };
 
     // Add scroll event listener
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     // Cleanup the event listener on component unmount
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -55,7 +56,6 @@ const Header = ({
           "sticky top-0 z-50 flex w-full justify-between p-4 text-white",
           // show background if we have scrolled
           { "bg-white": hasScrolled },
-
         )}
       >
         <div className="flex items-center gap-4">
@@ -85,9 +85,11 @@ const Header = ({
 
           <Image
             src={
-              (DIFF_LOGO.includes(pathname) && menuHidden ) || (!hasScrolled && menuHidden && pathname === `/${lang}`)
+              (DIFF_LOGO.includes(pathname) && menuHidden) || pathname.includes("activities") && !hasScrolled
                 ? LogoYellow
-                : LogoGreen
+                : !hasScrolled && menuHidden && pathname === `/${lang}`
+                  ? LogoWhite
+                  : LogoGreen
             }
             alt="Algarvian Roots Logo"
             width={180}

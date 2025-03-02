@@ -54,6 +54,7 @@ const getActivity = async (
     id: activity.id,
     slug: activity.data().slug as string,
     pluralo_id: activity.data().pluralo_id as string,
+    color: activity.data().color as "green" | "blue" | "yellow" | "brown",
     main_image: (await getDownloadURL(
       ref(st, activity.data().main_image),
     )) as string,
@@ -65,7 +66,11 @@ const getActivity = async (
     video: (await getDownloadURL(ref(st, activity.data().video))) as string,
     quick_info: {
       duration: activity.data().duration as number,
-      group: activity.data().group as boolean,
+      group: activity.data().group as {
+        active: boolean;
+        min: number;
+        max: number;
+      },
       guide: activity.data().guide as boolean,
       snack: activity.data().snack as boolean,
       transport: activity.data().transport as boolean,
