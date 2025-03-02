@@ -1,3 +1,13 @@
+export type Category =
+| "workshops"
+| "tours"
+| "experiences"
+| "hikes"
+| "birdwatching"
+| "accomdation"
+| "transportation"
+| "tailor-made";
+
 export type RockPath =
   | "yellow-1"
   | "blue-1"

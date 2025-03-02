@@ -2,8 +2,26 @@ import { getDictionary } from "@/app/[lang]/dictionaries";
 import { ActivitiesPreview } from "@/components/ActivityPreview";
 import Loading from "@/components/Loading";
 import { getActivities } from "@/services/firebase/activities";
-import { LanguagesType } from "@/types/types";
+import { Category, LanguagesType } from "@/types/types";
+import { Metadata } from "next/types";
 import { Suspense } from "react";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: LanguagesType; category: Category }>;
+}): Promise<Metadata> {
+  const lang = (await params).lang;
+  const category = (await params).category as Category;
+  const dict = await getDictionary(lang);
+
+  return {
+    title: `${dict.activities["categories-key-values"][category]} ${
+      dict.metadata["in-the-algarve"]
+    }`,
+    description: dict.mainpage.metadata.description,
+  };
+}
 
 const page = async ({
   params,

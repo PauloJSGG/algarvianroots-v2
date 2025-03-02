@@ -1,4 +1,8 @@
 {
+  "metadata": {
+    "in-the-algarve": "no Algarve",
+    "description": "A Algarvianroots é uma empresa que oferece experiências de ecoturismo no Algarve. Descubra o património natural e cultural do Algarve connosco."
+  },
   "layout": {
     "header": {
       "links": [
@@ -124,6 +128,7 @@
       "transportation": "Transporte",
       "tailor-made": "Feito à medida"
     },
+    "in-the-algarve": "no Algarve",
     "category-groups": [
       [
         {
