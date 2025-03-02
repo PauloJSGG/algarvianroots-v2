@@ -18,7 +18,9 @@ const Header = ({
   lang: LanguagesType;
   links: { slug: string; title: string }[];
 }) => {
-  const DIFF_LOGO = [`/${lang}/activity-categories`];
+  const DIFF_LOGO = [`/${lang}/activity-categories`, 
+    `/${lang}/activity-categories/[slug]`,
+  ];
   const [menuHidden, setMenuHidden] = useState(true);
   const [hasScrolled, setHasScrolled] = useState(false);
   const { setTheme } = useTheme();
@@ -83,7 +85,7 @@ const Header = ({
 
           <Image
             src={
-              (DIFF_LOGO.includes(pathname) && menuHidden ) || (!hasScrolled && menuHidden)
+              (DIFF_LOGO.includes(pathname) && menuHidden ) || (!hasScrolled && menuHidden && pathname === `/${lang}`)
                 ? LogoYellow
                 : LogoGreen
             }

@@ -92,7 +92,8 @@
       "location": "Localização",
       "language": "Idioma",
       "group-size": "Tamanho do grupo",
-      "difficulty": "Dificuldade"
+      "difficulty": "Dificuldade",
+      "hours": "Horas"
     },
     "activity-detailed-info": {
       "info": "Informações",

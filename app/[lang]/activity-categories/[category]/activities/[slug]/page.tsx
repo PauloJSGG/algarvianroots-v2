@@ -10,6 +10,7 @@ import Pluralo from "@/components/Pluralo";
 import ChevronWithScroll from "@/components/ChevronWithScroll";
 import clsx from "clsx";
 import Accordion from "@/components/Accordion";
+import Carousel from "@/components/Carousel";
 
 const page = async ({
   params,
@@ -59,37 +60,39 @@ const page = async ({
             </div>
             <div className="text-sm">{translations.description}</div>
           </div>
-          <div className="flex w-full flex-wrap items-end justify-center gap-4">
+          <div className="mb-4 flex w-full flex-wrap items-end justify-center gap-4">
             {activity.pluralo_id && (
               <Pluralo
                 id={activity.pluralo_id}
                 bookHere={dict.activities["book-here"]}
               />
             )}
-            <Image
-              src={activity.main_image}
-              alt={translations.name}
-              className="hidden rounded-4xl sm:block"
-              width={300}
-              height={300}
-            />
           </div>
+          {activity.images && (
+            <Carousel
+              autoSlide={true}
+              autoSlideInterval={4000}
+              components={activity.images.map((image) => (
+                <Image
+                  key={image}
+                  fill
+                  src={image}
+                  alt={translations.name}
+                  className="h-full w-full rounded-2xl object-cover"
+                />
+              ))}
+            />
+          )}
         </section>
 
         {activity.quick_info && (
-          <section className="container flex w-full flex-wrap justify-center gap-1">
+          <section className="container flex w-full flex-wrap justify-center gap-1 sm:max-w-2xl">
             <ActivityInfo
               icon={Clock}
               text={activity.quick_info.duration}
+              subText={dict.activities["activity-info"].hours}
               tailwindClasses="w-1/2 text-xs sm:w-1/4 sm:text-sm"
             />
-            {activity.quick_info.group && (
-              <ActivityInfo
-                icon={Users}
-                text={"test"}
-                tailwindClasses="w-1/2 text-xs sm:w-1/4 sm:text-sm"
-              />
-            )}
             {activity.quick_info.transport && (
               <ActivityInfo
                 icon={Car}
@@ -126,16 +129,28 @@ const page = async ({
           <Accordion title={dict.activities["activity-detailed-info"].info}>
             <CustomMDX source={translations.info} />
           </Accordion>
-          <Accordion title={dict.activities["activity-detailed-info"].itinerary}>
+          <Accordion
+            title={dict.activities["activity-detailed-info"].itinerary}
+          >
             <CustomMDX source={translations.itinerary} />
           </Accordion>
-          <Accordion title={dict.activities["activity-detailed-info"]["what-it-includes"]}>
+          <Accordion
+            title={
+              dict.activities["activity-detailed-info"]["what-it-includes"]
+            }
+          >
             <CustomMDX source={translations.what_it_includes} />
           </Accordion>
-          <Accordion title={dict.activities["activity-detailed-info"]["points-of-interest"]}>
+          <Accordion
+            title={
+              dict.activities["activity-detailed-info"]["points-of-interest"]
+            }
+          >
             <CustomMDX source={translations.points_of_interest} />
           </Accordion>
-          <Accordion title={dict.activities["activity-detailed-info"]["what-to-bring"]}>
+          <Accordion
+            title={dict.activities["activity-detailed-info"]["what-to-bring"]}
+          >
             <CustomMDX source={translations.what_to_bring} />
           </Accordion>
         </div>

@@ -87,7 +87,8 @@
       "snack": "Snacks",
       "group": "2 - 8 people",
       "price": "Price",
-      "location": "Location"
+      "location": "Location",
+      "hours": "Hours"
     },
     "activity-detailed-info": {
       "info": "Information",

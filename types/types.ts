@@ -25,6 +25,7 @@ export interface IActivity {
   slug: string;
   pluralo_id?: string;
   main_image: string;
+  images?: string[];
   video?: string;
   quick_info?: {
     duration: number;

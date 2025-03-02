@@ -57,6 +57,11 @@ const getActivity = async (
     main_image: (await getDownloadURL(
       ref(st, activity.data().main_image),
     )) as string,
+    images: (await Promise.all(
+      activity.data().images.map(async (image: string) => {
+        return (await getDownloadURL(ref(st, image))) as string;
+      }),
+    )) as string[],
     video: (await getDownloadURL(ref(st, activity.data().video))) as string,
     quick_info: {
       duration: activity.data().duration as number,
