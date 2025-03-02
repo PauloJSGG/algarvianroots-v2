@@ -32,6 +32,12 @@
       "rights": "All rights reserved to:",
       "terms": "Terms and conditions",
       "privacy": "Privacy policy"
+    },
+    "whatsapp" : {
+      "title": "Contact us via WhatsApp",
+      "botMessage": "Hello! How can I help?",
+      "placeholder": "Write your message",
+      "send": "Send"
     }
   },
   "mainpage": {

@@ -9,7 +9,6 @@ import InstagramIcon from "@/public/images/footer/instagram.png";
 import TripadvisorIcon from "@/public/images/footer/tripadvisor.png";
 import { LanguagesType } from "@/types/types";
 import Pt2020 from "@/public/images/footer/2020.png";
-// import Algarve from "@/public/images/footer/algarve.png";
 import Rnt from "@/public/images/footer/rnt.png";
 import VisitPortugal from "@/public/images/footer/visitportugal.png";
 
@@ -52,16 +51,6 @@ const Footer = ({
             n°107, 8300-023 Silves Licence RNAAT n°245/2022
           </div>
         </section>
-        {/* center */}
-        {/* <section className="flex flex-col justify-center w-1/3">
-          <div className="z-30 w-48 p-2 px-8 text-left text-xs text-white">
-            All rights reserved to:
-          </div>
-          <div className="z-30 w-48 p-2 px-8 text-left text-xs text-white">
-            Silêncio místico unipessoal, lda NIPC 516015877 Casas da ribeira
-            n°107, 8300-023 Silves Licence RNAAT n°245/2022
-          </div>
-        </section> */}
         {/* right */}
         <section className="flex w-1/2 flex-col items-end justify-end text-end">
           {/* socials */}
@@ -80,7 +69,6 @@ const Footer = ({
                 src={TripadvisorIcon}
                 alt="Tripadvisor"
                 className="w-full"
-                // className="mt-4 mr-4"
               />
             </a>
             <a
@@ -126,12 +114,6 @@ const Footer = ({
             >
               <Image src={VisitPortugal} className="w-24" alt="VisitPortugal" />
             </a>
-            {/* <a
-              href="https://www.algarvepromotion.pt/pt/4366/algarvian-roots.aspx"
-              target="_blank"
-            >
-              <Image src={Algarve} className="w-24" alt="Algarve" />
-            </a> */}
           </div>
           <div className="z-30 flex w-48 items-center justify-end space-x-2 p-2 px-8 sm:w-80">
             <a href={`/docs/2020.pdf`} target="_blank" className="text-white">

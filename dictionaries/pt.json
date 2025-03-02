@@ -32,6 +32,12 @@
       "rights": "Todos os direitos reservados a:",
       "terms": "Termos e Condições",
       "privacy": "Política de Privacidade"
+    },
+    "whatsapp" : {
+      "title": "Contacte-nos via WhatsApp",
+      "botMessage": "Olá! Como posso ajudar?",
+      "placeholder": "Escreva a sua mensagem",
+      "send": "Enviar"
     }
   },
   "mainpage": {

@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import { getDictionary } from "@/app/[lang]/dictionaries";
 import { ThemeProvider } from "next-themes";
 import { LanguagesType } from "@/types/types";
+import WhatsAppWidget from "@/components/Whatsapp";
 // import Footer from "@/components/Footer";
 
 // const geistSans = Geist({
@@ -39,6 +40,12 @@ export default async function RootLayout({
             privacy={dict.layout.footer.privacy}
             rights={dict.layout.footer.rights}
             lang={lang}
+          />
+          <WhatsAppWidget 
+            title={dict.layout.whatsapp.title}
+            botMessage={dict.layout.whatsapp.botMessage}
+            placeholder={dict.layout.whatsapp.placeholder}
+            send={dict.layout.whatsapp.send}
           />
         </ThemeProvider>
       </body>
