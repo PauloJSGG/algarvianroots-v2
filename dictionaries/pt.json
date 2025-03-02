@@ -91,19 +91,19 @@
     "category-groups": [
       [
         {
-          "slug": "experiences",
-          "title": "Experiências",
-          "path": "green-1"
-        },
-        {
-          "slug": "tours",
-          "title": "Tours",
-          "path": "yellow-1"
-        },
-        {
           "slug": "workshops",
           "title": "Workshops",
           "path": "blue-1"
+        },
+        {
+          "slug": "tours",
+          "title": "Passeios",
+          "path": "green-1"
+        },
+        {
+          "slug": "hikes",
+          "title": "Caminhadas",
+          "path": "yellow-1"
         }
       ],
       [
