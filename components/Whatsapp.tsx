@@ -22,7 +22,9 @@ const WhatsAppWidget = ({
     setIsOpen(!isOpen);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: 
+    React.FormEvent<HTMLFormElement>
+  ) => {
     e.preventDefault();
     if (message.trim()) {
       const url = `https://api.whatsapp.com/send?phone=${PHONE_NUMBER}&text=${encodeURIComponent(message)}`;
