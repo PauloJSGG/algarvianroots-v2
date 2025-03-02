@@ -34,7 +34,12 @@ export default async function RootLayout({
           <main className="min-h-vh flex w-full flex-col items-center overflow-y-scroll">
             {children}
           </main>
-          <Footer />
+          <Footer
+            terms={dict.layout.footer.terms}
+            privacy={dict.layout.footer.privacy}
+            rights={dict.layout.footer.rights}
+            lang={lang}
+          />
         </ThemeProvider>
       </body>
     </html>

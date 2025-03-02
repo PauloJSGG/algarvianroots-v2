@@ -28,7 +28,10 @@
       "contact": "Contact",
       "address": "Address",
       "phone": "Phone",
-      "email": "Email"
+      "email": "Email",
+      "rights": "All rights reserved to:",
+      "terms": "Terms and conditions",
+      "privacy": "Privacy policy"
     }
   },
   "mainpage": {

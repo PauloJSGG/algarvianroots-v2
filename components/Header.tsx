@@ -22,16 +22,7 @@ const Header = ({
   const [menuHidden, setMenuHidden] = useState(true);
   const { setTheme } = useTheme();
 
-  // const handleClickOutside = (e:
-  //   | React.MouseEvent<HTMLDivElement, MouseEvent>
-  // ) => {
-  //   if (e.target.closest("header")) return;
-  //   setMenuHidden(true);
-  // };
-
-  // get path name with hook
   const pathname = usePathname();
-  console.log("pathname", pathname);
 
   return (
     <>
@@ -81,11 +72,11 @@ const Header = ({
       <div
         className={clsx(
           "bg-opacity-75 fixed top-0 z-40 flex h-dvh w-dvw flex-col items-center justify-center gap-4 bg-white",
-          { hidden: menuHidden },
-          // animate on show
-          // { "animate-fade-in": !menuHidden },
+          { "-translate-y-full": menuHidden },
+          { "animate-fade-in": !menuHidden },
+          "transition-all",
+           "ease-in-out duration-200"
         )}
-        // onClick={handleClickOutside}
       >
         {links.map((link) => (
           <Link
