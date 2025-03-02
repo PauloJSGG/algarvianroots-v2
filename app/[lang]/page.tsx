@@ -49,28 +49,28 @@ export default async function Page({
   const prod = process.env.NODE_ENV === "production";
 
   const articles = await getLatestArticles(lang);
-    const categoryGroups = dict.activities["category-groups"]
-      .map((categories) =>
-        categories.reduce(
-          (prev, category) => (
-            <div className="flex h-full flex-col items-center justify-center gap-4 sm:flex-row">
-              {prev}
-              <Link
-                href={`/activity-categories/${category.slug}/activities`}
+  const categoryGroups = dict.activities["category-groups"]
+    .map((categories) =>
+      categories.reduce(
+        (prev, category) => (
+          <div className="flex h-full flex-col items-center justify-center gap-4 sm:flex-row">
+            {prev}
+            <Link
+              href={`/activity-categories/${category.slug}/activities`}
+              key={category.title}
+            >
+              <Rock
                 key={category.title}
-              >
-                <Rock
-                  key={category.title}
-                  path={category.path as RockPath}
-                  text={category.title}
-                />
-              </Link>
-            </div>
-          ),
-          <></>,
+                path={category.path as RockPath}
+                text={category.title}
+              />
+            </Link>
+          </div>
         ),
-      )
-      .flat();
+        <></>,
+      ),
+    )
+    .flat();
 
   return (
     <>
@@ -171,13 +171,12 @@ export default async function Page({
           alt="seperator-bottom"
           className="max-h-64"
         />
-
-        {prod && (
-          <section className="container">
-            <Elfsight />
-          </section>
-        )}
       </div>
+      {prod && (
+        <section className="container">
+          <Elfsight />
+        </section>
+      )}
 
       {/* <Carousel images={images} autoSlide={true} autoSlideInterval={4000} /> */}
     </>
