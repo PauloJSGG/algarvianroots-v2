@@ -22,6 +22,7 @@ import clsx from "clsx";
 import ChevronWithScroll from "@/components/ChevronWithScroll";
 import { LanguagesType, RockPath } from "@/types/types";
 import Elfsight from "@/components/Elfsight";
+import Logo from "@/public/images/layout/logo-green.png";
 // import video from "@/public/videos/landing-page/video.mp4";
 
 type Props = {
@@ -34,6 +35,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const dict = await getDictionary(lang);
 
   return {
+    openGraph: {
+      //main image
+      images: [
+        {
+          url: Logo.src,
+          alt: "AlgarvianRoots logo",
+        },
+      ],
+    },
     title: dict.mainpage.metadata.title,
     description: dict.mainpage.metadata.description,
   };
