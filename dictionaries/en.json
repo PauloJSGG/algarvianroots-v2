@@ -79,32 +79,54 @@
       "location": "Location"
     },
     "title": "Our activities",
+    "book-here": "Book here",
     "categories-key-values": {
       "workshops": "Workshops",
       "experiences": "Experiences",
       "tours": "Tours"
     },
-    "categories": [
-      {
-        "slug": "experiences",
-        "title": "Experiences",
-        "path": "green-1"
-      },
-      {
-        "slug": "tours",
-        "title": "Tours",
-        "path": "yellow-1"
-      },
-      {
-        "slug": "workshops",
-        "title": "Workshops",
-        "path": "blue-1"
-      },
-      {
-        "slug": "test",
-        "title": "Test",
-        "path": "brown-1"
-      }
+    "category-groups": [
+      [
+        {
+          "slug": "experiences",
+          "title": "Experiences",
+          "path": "green-1"
+        },
+        {
+          "slug": "tours",
+          "title": "Tours",
+          "path": "yellow-1"
+        },
+        {
+          "slug": "workshops",
+          "title": "Workshops",
+          "path": "blue-1"
+        }
+      ],
+      [
+        {
+          "slug": "birwatching",
+          "title": "Birdwatching",
+          "path": "brown-2"
+        },
+        {
+          "slug": "accomdation",
+          "title": "Accomodation",
+          "path": "green-2"
+        },
+        {
+          "slug": "transportation",
+          "title": "Transportation",
+          "path": "yellow-2"
+        }
+      ],
+      [
+        {
+          "slug": "tailor-made",
+          "title": "Tailor made",
+          "path": "blue-2"
+        }
+      ]
     ]
   },
   "contact": {

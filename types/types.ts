@@ -22,8 +22,10 @@ export interface IArticle {
 
 export interface IActivity {
   id: string;
-  main_image: string;
   slug: string;
+  pluralo_id?: string;
+  main_image: string;
+  video?: string;
   quick_info?: {
     duration: number;
     group: boolean;

@@ -53,9 +53,11 @@ const getActivity = async (
   return {
     id: activity.id,
     slug: activity.data().slug as string,
+    pluralo_id: activity.data().pluralo_id as string,
     main_image: (await getDownloadURL(
       ref(st, activity.data().main_image),
     )) as string,
+    video: (await getDownloadURL(ref(st, activity.data().video))) as string,
     quick_info: {
       duration: activity.data().duration as number,
       group: activity.data().group as boolean,

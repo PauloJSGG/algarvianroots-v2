@@ -21,6 +21,7 @@ import Badge from "@/components/Badge";
 import clsx from "clsx";
 import ChevronWithScroll from "@/components/ChevronWithScroll";
 import { LanguagesType, RockPath } from "@/types/types";
+import Elfsight from "@/components/Elfsight";
 // import video from "@/public/videos/landing-page/video.mp4";
 
 type Props = {
@@ -45,8 +46,31 @@ export default async function Page({
 }) {
   const lang = (await params).lang;
   const dict = await getDictionary(lang);
+  const prod = process.env.NODE_ENV === "production";
 
   const articles = await getLatestArticles(lang);
+    const categoryGroups = dict.activities["category-groups"]
+      .map((categories) =>
+        categories.reduce(
+          (prev, category) => (
+            <div className="flex h-full flex-col items-center justify-center gap-4 sm:flex-row">
+              {prev}
+              <Link
+                href={`/activity-categories/${category.slug}/activities`}
+                key={category.title}
+              >
+                <Rock
+                  key={category.title}
+                  path={category.path as RockPath}
+                  text={category.title}
+                />
+              </Link>
+            </div>
+          ),
+          <></>,
+        ),
+      )
+      .flat();
 
   return (
     <>
@@ -89,18 +113,11 @@ export default async function Page({
         <section className="bg-background container">
           <div className="text-center text-3xl">{dict.activities.title}</div>
           <div className="flex w-full flex-wrap justify-center gap-4 sm:flex-nowrap">
-            {dict.activities.categories.map((category) => (
-              <Link
-                href={`/activity-categories/${category.slug}/activities`}
-                key={category.title}
-              >
-                <Rock
-                  key={category.title}
-                  path={category.path as RockPath}
-                  text={category.title}
-                />
-              </Link>
-            ))}
+            <Carousel
+              components={categoryGroups}
+              autoSlide={false}
+              autoSlideInterval={4000}
+            />
           </div>
         </section>
 
@@ -116,7 +133,20 @@ export default async function Page({
           </Link>
 
           <Carousel
-            images={[bread, clay]}
+            components={[
+              <Image
+                src={bread}
+                alt="bread"
+                key="bread"
+                className="h-full w-full rounded-2xl object-cover"
+              />,
+              <Image
+                src={clay}
+                alt="clay"
+                key="clay"
+                className="h-full w-full rounded-2xl object-cover"
+              />,
+            ]}
             autoSlide={true}
             autoSlideInterval={4000}
           />
@@ -141,6 +171,12 @@ export default async function Page({
           alt="seperator-bottom"
           className="max-h-64"
         />
+
+        {prod && (
+          <section className="container">
+            <Elfsight />
+          </section>
+        )}
       </div>
 
       {/* <Carousel images={images} autoSlide={true} autoSlideInterval={4000} /> */}

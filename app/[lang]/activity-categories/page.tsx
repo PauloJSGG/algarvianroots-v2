@@ -5,6 +5,7 @@ import River from "@/public/images/activity-categories/river.jpg";
 import Image from "next/image";
 import clsx from "clsx";
 import { LanguagesType, RockPath } from "@/types/types";
+import Carousel from "@/components/Carousel";
 
 export default async function Page({
   params,
@@ -13,6 +14,29 @@ export default async function Page({
 }) {
   const lang = (await params).lang;
   const dict = await getDictionary(lang);
+
+  const categoryGroups = dict.activities["category-groups"]
+    .map((categories) =>
+      categories.reduce(
+        (prev, category) => (
+          <div className="flex h-full flex-col items-center justify-center gap-4 sm:flex-row">
+            {prev}
+            <Link
+              href={`/activity-categories/${category.slug}/activities`}
+              key={category.title}
+            >
+              <Rock
+                key={category.title}
+                path={category.path as RockPath}
+                text={category.title}
+              />
+            </Link>
+          </div>
+        ),
+        <></>,
+      ),
+    )
+    .flat();
 
   return (
     <section className="container">
@@ -29,18 +53,11 @@ export default async function Page({
         {dict.activities.title}
       </div>
       <div className="flex w-full flex-wrap justify-center gap-4 sm:flex-nowrap">
-        {dict.activities.categories.map((category) => (
-          <Link
-            href={`/activity-categories/${category.slug}/activities`}
-            key={category.title}
-          >
-            <Rock
-              key={category.title}
-              path={category.path as RockPath}
-              text={category.title}
-            />
-          </Link>
-        ))}
+        <Carousel
+          components={categoryGroups}
+          autoSlide={false}
+          autoSlideInterval={4000}
+        />
       </div>
     </section>
   );

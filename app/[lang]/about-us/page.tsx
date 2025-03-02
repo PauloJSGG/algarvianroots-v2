@@ -19,6 +19,57 @@ const page = async ({
   const lang = (await params).lang;
   const dict = await getDictionary(lang);
 
+  const carouselImages = [
+    <Image
+      src={cliff}
+      alt="cliff"
+      key="cliff"
+      className="h-full w-full rounded-2xl object-cover"
+    />,
+    <Image
+      src={selfie}
+      alt="selfie"
+      key="selfie"
+      className="h-full w-full rounded-2xl object-cover"
+    />,
+    <Image
+      src={forest}
+      alt="forest"
+      key="forest"
+      className="h-full w-full rounded-2xl object-cover"
+    />,
+    <Image
+      src={dad}
+      alt="dad"
+      key="dad"
+      className="h-full w-full rounded-2xl object-cover"
+    />,
+    <Image
+      src={river}
+      alt="river"
+      key="river"
+      className="h-full w-full rounded-2xl object-cover"
+    />,
+    <Image
+      src={tour}
+      alt="tour"
+      key="tour"
+      className="h-full w-full rounded-2xl object-cover"
+    />,
+    <Image
+      src={workshop}
+      alt="workshop"
+      key="workshop"
+      className="h-full w-full rounded-2xl object-cover"
+    />,
+    <Image
+      src={tile}
+      alt="tile"
+      key="tile"
+      className="h-full w-full rounded-2xl object-cover"
+    />,
+  ];
+
   return (
     <>
       <section className="container">
@@ -27,7 +78,7 @@ const page = async ({
           {dict["about-us"].description}
         </div>
         <Carousel
-          images={[cliff, selfie, forest, dad, river, tour, workshop, tile]}
+          components={carouselImages}
           autoSlide={true}
           autoSlideInterval={4000}
         />
@@ -36,7 +87,7 @@ const page = async ({
         <div className="text-center text-3xl">
           {dict["about-us"].team.title}
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-center gap-4">
           {dict["about-us"].team.members.map((member) => (
             <div key={member.name} className="flex flex-col items-center gap-4">
               <Image

@@ -73,6 +73,7 @@
   },
   "activities": {
     "title": "As nossas atividades",
+    "book-here": "Reserve aqui",
     "activity-info": {
       "duration": "Duração",
       "transport": "Transporte",
@@ -87,27 +88,48 @@
       "tours": "Tours",
       "experiences": "Experiências"
     },
-    "categories": [
-      {
-        "slug": "experiences",
-        "title": "Workshops",
-        "path": "green-1"
-      },
-      {
-        "slug": "tours",
-        "title": "Tours",
-        "path": "yellow-1"
-      },
-      {
-        "slug": "workshops",
-        "title": "Workshops",
-        "path": "blue-1"
-      },
-      {
-        "slug": "test",
-        "title": "Test",
-        "path": "brown-1"
-      }
+    "category-groups": [
+      [
+        {
+          "slug": "experiences",
+          "title": "Experiências",
+          "path": "green-1"
+        },
+        {
+          "slug": "tours",
+          "title": "Tours",
+          "path": "yellow-1"
+        },
+        {
+          "slug": "workshops",
+          "title": "Workshops",
+          "path": "blue-1"
+        }
+      ],
+      [
+        {
+          "slug": "birdwatching",
+          "title": "Observação de aves",
+          "path": "brown-2"
+        },
+        {
+          "slug": "accomdation",
+          "title": "Alojamento",
+          "path": "green-2"
+        },
+        {
+          "slug": "transportation",
+          "title": "Transporte",
+          "path": "yellow-2"
+        }
+      ],
+      [
+        {
+          "slug": "tailor-made",
+          "title": "Feito à medida",
+          "path": "blue-2"
+        }
+      ]
     ]
   },
   "contact": {

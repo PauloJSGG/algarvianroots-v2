@@ -116,3 +116,18 @@ body {
   background-size: 100% 3px;
   background-position: 0 100%;
 }
+
+/* heartbeat animation */
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.heartbeat {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
