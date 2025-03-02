@@ -58,7 +58,7 @@ export default async function Page({
   const dict = await getDictionary(lang);
   const prod = process.env.NODE_ENV === "production";
 
-  const articles = await getLatestArticles(lang);
+  const articles = await getLatestArticles(lang, 2);
   const categoryGroups = dict.activities["category-groups"]
     .map((categories) =>
       categories.reduce(

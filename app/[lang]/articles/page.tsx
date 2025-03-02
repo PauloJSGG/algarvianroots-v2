@@ -13,7 +13,7 @@ const page = async ({
 }) => {
   const lang = (await params).lang;
   const dict = await getDictionary(lang);
-  const articles = await getLatestArticles(lang);
+  const articles = await getLatestArticles(lang, 10);
 
   return (
     <section className={clsx("container")}>
