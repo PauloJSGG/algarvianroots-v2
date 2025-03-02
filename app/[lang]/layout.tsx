@@ -42,7 +42,7 @@ export default async function RootLayout({
             lang={lang}
           />
           <WhatsAppWidget 
-            title={dict.layout.whatsapp.title}
+            title={"Francisco"}
             botMessage={dict.layout.whatsapp.botMessage}
             placeholder={dict.layout.whatsapp.placeholder}
             send={dict.layout.whatsapp.send}

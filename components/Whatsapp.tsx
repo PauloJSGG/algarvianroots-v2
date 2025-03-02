@@ -45,7 +45,7 @@ const WhatsAppWidget = ({
                 className="h-10 w-10 rounded-full border-1 border-white"
               />
               <div className="ml-3">
-                <p className="font-semibold">Francisco</p>
+                <p className="font-semibold">{title}</p>
               </div>
             </div>
             <button
