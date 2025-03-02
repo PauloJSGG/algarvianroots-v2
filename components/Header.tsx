@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import LogoGreen from "@/public/images/layout/logo-green.png";
 import LogoYellow from "@/public/images/layout/logo-yellow.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
@@ -20,13 +20,42 @@ const Header = ({
 }) => {
   const DIFF_LOGO = [`/${lang}/activity-categories`];
   const [menuHidden, setMenuHidden] = useState(true);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const { setTheme } = useTheme();
 
   const pathname = usePathname();
 
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Check if the user has scrolled 100vh (viewport height)
+      if (window.scrollY >= window.innerHeight) {
+        setHasScrolled(true);
+      } else {
+        setHasScrolled(false);
+      }
+    };
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <>
-      <header className="sticky top-0 z-50 flex w-full justify-between bg-transparent p-4 text-white">
+      {/* <header className="sticky top-0 z-50 flex w-full justify-between p-4 text-white bg-white/50"> */}
+      <header
+        className={clsx(
+          "sticky top-0 z-50 flex w-full justify-between p-4 text-white",
+          // show background if we have scrolled
+          { "bg-white": hasScrolled },
+
+        )}
+      >
         <div className="flex items-center gap-4">
           {menuHidden ? (
             <button
@@ -75,7 +104,7 @@ const Header = ({
           { "-translate-y-full": menuHidden },
           { "animate-fade-in": !menuHidden },
           "transition-all",
-           "ease-in-out duration-200"
+          "duration-200 ease-in-out",
         )}
       >
         {links.map((link) => (
