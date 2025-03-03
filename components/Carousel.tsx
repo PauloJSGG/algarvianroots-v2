@@ -59,24 +59,29 @@ const Carousel = ({
           </div>
         ))}
       </div>
-      <button
-        className={clsx(
-          "bg-foreground absolute top-1/2 left-0 -translate-y-1/2 transform cursor-pointer p-2 text-white",
-          "rounded-3xl hover:brightness-125",
-        )}
-        onClick={prevSlide}
-      >
-        <ChevronLeft />
-      </button>
-      <button
-        className={clsx(
-          "bg-foreground absolute top-1/2 right-0 -translate-y-1/2 transform cursor-pointer p-2 text-white",
-          "rounded-3xl hover:brightness-125",
-        )}
-        onClick={nextSlide}
-      >
-        <ChevronRight />
-      </button>
+      {components.length > 1 && (
+        <button
+          className={clsx(
+            "bg-foreground absolute top-1/2 left-0 -translate-y-1/2 transform cursor-pointer p-2 text-white",
+            "rounded-3xl hover:brightness-125",
+          )}
+          onClick={prevSlide}
+        >
+          <ChevronLeft />
+        </button>
+      )}
+
+      {components.length > 1 && (
+        <button
+          className={clsx(
+            "bg-foreground absolute top-1/2 right-0 -translate-y-1/2 transform cursor-pointer p-2 text-white",
+            "rounded-3xl hover:brightness-125",
+          )}
+          onClick={nextSlide}
+        >
+          <ChevronRight />
+        </button>
+      )}
       {/* <div className="absolute bottom-0 left-0 right-0 flex justify-center mb-4">
         {images.map((_, index) => (
           <div

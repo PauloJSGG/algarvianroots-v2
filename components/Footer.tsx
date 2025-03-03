@@ -93,7 +93,7 @@ const Footer = ({
             <a
               href={`/docs/terms-${lang}-2022.pdf`}
               target="_blank"
-              className="text-white"
+              className="text-white text-xs"
             >
               {terms}
             </a>
@@ -102,7 +102,7 @@ const Footer = ({
             <a
               href={`/docs/privacy-${lang}-2022.pdf`}
               target="_blank"
-              className="text-white"
+              className="text-white text-xs"
             >
               {privacy}
             </a>

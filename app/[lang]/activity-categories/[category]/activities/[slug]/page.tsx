@@ -106,10 +106,13 @@ const page = async ({
             "rounded-2xl",
           )}
         >
-          {translations.name}
-          {/* <div className="text-sm font-semibold text-white sm:text-2xl">
-            {dict.mainpage.subtitle}
-          </div> */}
+          {/* show first word */}
+          {translations.name.split(" ")[0]}
+          {/* {translations.name} */}
+          <div className="text-sm font-semibold text-white sm:text-2xl">
+            {/* show rest of the words */}
+            {translations.name.split(" ").slice(1).join(" ")}
+          </div>
           <ChevronWithScroll />
         </div>
       </section>

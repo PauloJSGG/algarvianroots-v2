@@ -42,7 +42,7 @@ const page = async ({
 
   return (
     <section className="container">
-      <div className="text-center text-3xl">
+      <div className="text-center text-3xl mb-4">
         {dict.activities["categories-key-values"][category]}
       </div>
       <Suspense fallback={<Loading />}>
